@@ -1,0 +1,3592 @@
+D:\Program Files\kind\docker>kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/static/provider/kind/deploy.yaml
+namespace/ingress-nginx created
+serviceaccount/ingress-nginx created
+configmap/ingress-nginx-controller created
+clusterrole.rbac.authorization.k8s.io/ingress-nginx created
+clusterrolebinding.rbac.authorization.k8s.io/ingress-nginx created
+role.rbac.authorization.k8s.io/ingress-nginx created
+rolebinding.rbac.authorization.k8s.io/ingress-nginx created
+service/ingress-nginx-controller-admission created
+service/ingress-nginx-controller created
+deployment.apps/ingress-nginx-controller created
+validatingwebhookconfiguration.admissionregistration.k8s.io/ingress-nginx-admission created
+serviceaccount/ingress-nginx-admission created
+clusterrole.rbac.authorization.k8s.io/ingress-nginx-admission created
+clusterrolebinding.rbac.authorization.k8s.io/ingress-nginx-admission created
+role.rbac.authorization.k8s.io/ingress-nginx-admission created
+rolebinding.rbac.authorization.k8s.io/ingress-nginx-admission created
+job.batch/ingress-nginx-admission-create created
+job.batch/ingress-nginx-admission-patch created
+
+
+D:\Program Files\kind\docker>kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/static/provider/kind/deploy.yaml
+namespace/ingress-nginx created
+serviceaccount/ingress-nginx created
+configmap/ingress-nginx-controller created
+clusterrole.rbac.authorization.k8s.io/ingress-nginx created
+clusterrolebinding.rbac.authorization.k8s.io/ingress-nginx created
+role.rbac.authorization.k8s.io/ingress-nginx created
+rolebinding.rbac.authorization.k8s.io/ingress-nginx created
+service/ingress-nginx-controller-admission created
+service/ingress-nginx-controller created
+deployment.apps/ingress-nginx-controller created
+validatingwebhookconfiguration.admissionregistration.k8s.io/ingress-nginx-admission created
+serviceaccount/ingress-nginx-admission created
+clusterrole.rbac.authorization.k8s.io/ingress-nginx-admission created
+clusterrolebinding.rbac.authorization.k8s.io/ingress-nginx-admission created
+role.rbac.authorization.k8s.io/ingress-nginx-admission created
+rolebinding.rbac.authorization.k8s.io/ingress-nginx-admission created
+job.batch/ingress-nginx-admission-create created
+job.batch/ingress-nginx-admission-patch created
+
+D:\Program Files\kind\docker>kubectl get pods -n ingress-nginx
+NAME                                        READY   STATUS      RESTARTS   AGE
+ingress-nginx-admission-create-8ngbt        0/1     Completed   0          37s
+ingress-nginx-admission-patch-qp29n         0/1     Completed   0          37s
+ingress-nginx-controller-6df69bd4f7-46mk9   0/1     Pending     0          37s
+
+
+deleted
+
+D:\Program Files\kind\docker>kubectl edit deployments -n ingress-nginx
+deployment.apps/ingress-nginx-controller edited
+
+      nodeSelector:
+        ingress-ready: "true"
+        kubernetes.io/os: linux
+		
+		ingress-nginx
+		
+		--------------
+		
+D:\Program Files\kind\docker>kubectl create secret docker-registry mytrainregistrykey --docker-server=docker.io --docker-username=mohanraj123 --docker-password=sulur!123 --docker-email=mohanraj123@gmail.com
+secret/mytrainregistrykey created
+
+D:\Program Files\kind\docker>kubectl
+kubectl controls the Kubernetes cluster manager.
+
+ Find more information at: https://kubernetes.io/docs/reference/kubectl/overview/
+
+Basic Commands (Beginner):
+  create        Create a resource from a file or from stdin.
+  expose        Take a replication controller, service, deployment or pod and expose it as a new
+Kubernetes Service
+  run           Run a particular image on the cluster
+  set           Set specific features on objects
+
+Basic Commands (Intermediate):
+  explain       Documentation of resources
+  get           Display one or many resources
+  edit          Edit a resource on the server
+  delete        Delete resources by filenames, stdin, resources and names, or by resources and label
+selector
+
+Deploy Commands:
+  rollout       Manage the rollout of a resource
+  scale         Set a new size for a Deployment, ReplicaSet or Replication Controller
+  autoscale     Auto-scale a Deployment, ReplicaSet, or ReplicationController
+
+Cluster Management Commands:
+  certificate   Modify certificate resources.
+  cluster-info  Display cluster info
+  top           Display Resource (CPU/Memory/Storage) usage.
+  cordon        Mark node as unschedulable
+  uncordon      Mark node as schedulable
+  drain         Drain node in preparation for maintenance
+  taint         Update the taints on one or more nodes
+
+Troubleshooting and Debugging Commands:
+  describe      Show details of a specific resource or group of resources
+  logs          Print the logs for a container in a pod
+  attach        Attach to a running container
+  exec          Execute a command in a container
+  port-forward  Forward one or more local ports to a pod
+  proxy         Run a proxy to the Kubernetes API server
+  cp            Copy files and directories to and from containers.
+  auth          Inspect authorization
+
+Advanced Commands:
+  diff          Diff live version against would-be applied version
+  apply         Apply a configuration to a resource by filename or stdin
+  patch         Update field(s) of a resource using strategic merge patch
+  replace       Replace a resource by filename or stdin
+  wait          Experimental: Wait for a specific condition on one or many resources.
+  convert       Convert config files between different API versions
+  kustomize     Build a kustomization target from a directory or a remote url.
+
+Settings Commands:
+  label         Update the labels on a resource
+  annotate      Update the annotations on a resource
+  completion    Output shell completion code for the specified shell (bash or zsh)
+
+Other Commands:
+  alpha         Commands for features in alpha
+  api-resources Print the supported API resources on the server
+  api-versions  Print the supported API versions on the server, in the form of "group/version"
+  config        Modify kubeconfig files
+  plugin        Provides utilities for interacting with plugins.
+  version       Print the client and server version information
+
+Usage:
+  kubectl [flags] [options]
+
+Use "kubectl <command> --help" for more information about a given command.
+Use "kubectl options" for a list of global command-line options (applies to all commands).
+
+D:\Program Files\kind\docker>
+D:\Program Files\kind\docker>start .
+
+D:\Program Files\kind\docker>kubectl apply -f demoapp.yaml
+deployment.apps/demoapp created
+service/demoapp-svc created
+
+D:\Program Files\kind\docker>kubectl get pods
+NAME                       READY   STATUS             RESTARTS   AGE
+demoapp-6fc45bf7b7-2rww9   0/1     ImagePullBackOff   0          2m59s
+demoapp-6fc45bf7b7-llsl6   0/1     ImagePullBackOff   0          2m59s
+demoapp-6fc45bf7b7-v45q9   0/1     ImagePullBackOff   0          2m59s
+
+D:\Program Files\kind\docker>kubectl get secret
+NAME                  TYPE                                  DATA   AGE
+default-token-m9k7k   kubernetes.io/service-account-token   3      81m
+mytrainregistrykey    kubernetes.io/dockerconfigjson        1      20m
+
+D:\Program Files\kind\docker>kubectl apply -f demoapp.yaml
+deployment.apps/demoapp configured
+service/demoapp-svc unchanged
+
+D:\Program Files\kind\docker>kubectl get pods
+NAME                       READY   STATUS              RESTARTS   AGE
+demoapp-6b65cd6bf9-b4w4v   0/1     ContainerCreating   0          7s
+demoapp-6fc45bf7b7-2rww9   0/1     ImagePullBackOff    0          4m47s
+demoapp-6fc45bf7b7-llsl6   0/1     ImagePullBackOff    0          4m47s
+demoapp-6fc45bf7b7-v45q9   0/1     ImagePullBackOff    0          4m47s
+
+D:\Program Files\kind\docker>kubectl get pods
+NAME                       READY   STATUS             RESTARTS   AGE
+demoapp-6b65cd6bf9-b4w4v   0/1     ErrImagePull       0          10s
+demoapp-6fc45bf7b7-2rww9   0/1     ImagePullBackOff   0          4m50s
+demoapp-6fc45bf7b7-llsl6   0/1     ImagePullBackOff   0          4m50s
+demoapp-6fc45bf7b7-v45q9   0/1     ImagePullBackOff   0          4m50s
+
+D:\Program Files\kind\docker>kubectl get pods
+NAME                       READY   STATUS             RESTARTS   AGE
+demoapp-6b65cd6bf9-b4w4v   0/1     ErrImagePull       0          12s
+demoapp-6fc45bf7b7-2rww9   0/1     ImagePullBackOff   0          4m52s
+demoapp-6fc45bf7b7-llsl6   0/1     ImagePullBackOff   0          4m52s
+demoapp-6fc45bf7b7-v45q9   0/1     ImagePullBackOff   0          4m52s
+
+D:\Program Files\kind\docker>kubectl get pods
+NAME                       READY   STATUS             RESTARTS   AGE
+demoapp-6b65cd6bf9-b4w4v   0/1     ErrImagePull       0          19s
+demoapp-6fc45bf7b7-2rww9   0/1     ImagePullBackOff   0          4m59s
+demoapp-6fc45bf7b7-llsl6   0/1     ImagePullBackOff   0          4m59s
+demoapp-6fc45bf7b7-v45q9   0/1     ImagePullBackOff   0          4m59s
+
+D:\Program Files\kind\docker>kubectl get pods
+NAME                       READY   STATUS             RESTARTS   AGE
+demoapp-6b65cd6bf9-b4w4v   0/1     ImagePullBackOff   0          36s
+demoapp-6fc45bf7b7-2rww9   0/1     ImagePullBackOff   0          5m16s
+demoapp-6fc45bf7b7-llsl6   0/1     ImagePullBackOff   0          5m16s
+demoapp-6fc45bf7b7-v45q9   0/1     ImagePullBackOff   0          5m16s
+
+D:\Program Files\kind\docker>kubectl get pods
+NAME                       READY   STATUS             RESTARTS   AGE
+demoapp-6b65cd6bf9-b4w4v   0/1     ImagePullBackOff   0          113s
+demoapp-6fc45bf7b7-2rww9   0/1     ErrImagePull       0          6m33s
+demoapp-6fc45bf7b7-llsl6   0/1     ImagePullBackOff   0          6m33s
+demoapp-6fc45bf7b7-v45q9   0/1     ImagePullBackOff   0          6m33s
+
+D:\Program Files\kind\docker>kubectl describe pod tomcattrain
+Error from server (NotFound): pods "tomcattrain" not found
+
+D:\Program Files\kind\docker>kubectl describe pod demoapp-6b65cd6bf9-b4w4v
+Name:         demoapp-6b65cd6bf9-b4w4v
+Namespace:    default
+Priority:     0
+Node:         kind-2-control-plane/172.18.0.2
+Start Time:   Fri, 27 Nov 2020 23:38:42 +0530
+Labels:       app=demoapp
+              pod-template-hash=6b65cd6bf9
+Annotations:  <none>
+Status:       Pending
+IP:           10.244.0.8
+IPs:
+  IP:           10.244.0.8
+Controlled By:  ReplicaSet/demoapp-6b65cd6bf9
+Containers:
+  demoapp:
+    Container ID:
+    Image:          tomcattrain:l0
+    Image ID:
+    Port:           8080/TCP
+    Host Port:      0/TCP
+    State:          Waiting
+      Reason:       ErrImagePull
+    Ready:          False
+    Restart Count:  0
+    Limits:
+      cpu:     100m
+      memory:  200Mi
+    Requests:
+      cpu:        100m
+      memory:     200Mi
+    Environment:  <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-m9k7k (ro)
+Conditions:
+  Type              Status
+  Initialized       True
+  Ready             False
+  ContainersReady   False
+  PodScheduled      True
+Volumes:
+  default-token-m9k7k:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  default-token-m9k7k
+    Optional:    false
+QoS Class:       Guaranteed
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type     Reason     Age                  From               Message
+  ----     ------     ----                 ----               -------
+  Normal   Scheduled  2m10s                default-scheduler  Successfully assigned default/demoapp-6b65cd6bf9-b4w4v to kind-2-control-plane
+  Normal   Pulling    26s (x4 over 2m10s)  kubelet            Pulling image "tomcattrain:l0"
+  Warning  Failed     20s (x4 over 2m4s)   kubelet            Failed to pull image "tomcattrain:l0": rpc error: code = Unknown desc = failed to pull and unpack image "docker.io/library/tomcattrain:l0": failed to resolve reference "docker.io/library/tomcattrain:l0": pull access denied, repository does not exist or may require authorization: server message: insufficient_scope: authorization failed
+  Warning  Failed     20s (x4 over 2m4s)   kubelet            Error: ErrImagePull
+  Normal   BackOff    8s (x6 over 2m3s)    kubelet            Back-off pulling image "tomcattrain:l0"
+  Warning  Failed     8s (x6 over 2m3s)    kubelet            Error: ImagePullBackOff
+
+D:\Program Files\kind\docker>kubectl get pods
+NAME                       READY   STATUS             RESTARTS   AGE
+demoapp-6b65cd6bf9-b4w4v   0/1     ImagePullBackOff   0          3m14s
+demoapp-6fc45bf7b7-2rww9   0/1     ImagePullBackOff   0          7m54s
+demoapp-6fc45bf7b7-llsl6   0/1     ImagePullBackOff   0          7m54s
+demoapp-6fc45bf7b7-v45q9   0/1     ImagePullBackOff   0          7m54s
+
+D:\Program Files\kind\docker>kubectl delete pod demoapp-6b65cd6bf9-b4w4v demoapp-6fc45bf7b7-2rww9 demoapp-6fc45bf7b7-llsl6 demoapp-6fc45bf7b7-v45q9
+pod "demoapp-6b65cd6bf9-b4w4v" deleted
+pod "demoapp-6fc45bf7b7-2rww9" deleted
+pod "demoapp-6fc45bf7b7-llsl6" deleted
+pod "demoapp-6fc45bf7b7-v45q9" deleted
+
+D:\Program Files\kind\docker>kubectl apply -f demoapp.yaml
+deployment.apps/demoapp configured
+service/demoapp-svc unchanged
+
+D:\Program Files\kind\docker>kubectl get pods
+NAME                       READY   STATUS              RESTARTS   AGE
+demoapp-6b65cd6bf9-fzf2k   0/1     ImagePullBackOff    0          29s
+demoapp-6b8b8cd4f5-lxzr9   0/1     ContainerCreating   0          8s
+demoapp-6fc45bf7b7-gzpjj   0/1     ErrImagePull        0          29s
+demoapp-6fc45bf7b7-jdspt   0/1     ErrImagePull        0          29s
+
+D:\Program Files\kind\docker>kubectl get pods
+NAME                       READY   STATUS              RESTARTS   AGE
+demoapp-6b65cd6bf9-fzf2k   0/1     ImagePullBackOff    0          38s
+demoapp-6b8b8cd4f5-lxzr9   0/1     ContainerCreating   0          17s
+demoapp-6fc45bf7b7-gzpjj   0/1     ErrImagePull        0          38s
+demoapp-6fc45bf7b7-jdspt   0/1     ImagePullBackOff    0          38s
+
+D:\Program Files\kind\docker>kubectl delete -f demoapp.yaml
+deployment.apps "demoapp" deleted
+service "demoapp-svc" deleted
+
+D:\Program Files\kind\docker>kubectl get pods
+No resources found in default namespace.
+
+D:\Program Files\kind\docker>kubectl apply -f demoapp.yaml
+deployment.apps/demoapp created
+service/demoapp-svc created
+
+D:\Program Files\kind\docker>kubectl get pods
+NAME                       READY   STATUS              RESTARTS   AGE
+demoapp-6b8b8cd4f5-mwpfr   0/1     ContainerCreating   0          4s
+demoapp-6b8b8cd4f5-s7j86   0/1     ContainerCreating   0          4s
+demoapp-6b8b8cd4f5-tpz2q   0/1     ContainerCreating   0          4s
+
+D:\Program Files\kind\docker>kubectl get pods
+NAME                       READY   STATUS              RESTARTS   AGE
+demoapp-6b8b8cd4f5-mwpfr   0/1     ContainerCreating   0          7s
+demoapp-6b8b8cd4f5-s7j86   0/1     ContainerCreating   0          7s
+demoapp-6b8b8cd4f5-tpz2q   0/1     ContainerCreating   0          7s
+
+D:\Program Files\kind\docker>kubectl get pods
+NAME                       READY   STATUS              RESTARTS   AGE
+demoapp-6b8b8cd4f5-mwpfr   0/1     ContainerCreating   0          8s
+demoapp-6b8b8cd4f5-s7j86   0/1     ContainerCreating   0          8s
+demoapp-6b8b8cd4f5-tpz2q   0/1     ErrImagePull        0          8s
+
+D:\Program Files\kind\docker>kubectl describe pod demoapp-6fc45bf7b7-v45q9
+Error from server (NotFound): pods "demoapp-6fc45bf7b7-v45q9" not found
+
+D:\Program Files\kind\docker>kubectl describe pod demoapp-6b8b8cd4f5-tpz2q
+Name:         demoapp-6b8b8cd4f5-tpz2q
+Namespace:    default
+Priority:     0
+Node:         kind-2-control-plane/172.18.0.2
+Start Time:   Fri, 27 Nov 2020 23:43:52 +0530
+Labels:       app=demoapp
+              pod-template-hash=6b8b8cd4f5
+Annotations:  <none>
+Status:       Pending
+IP:           10.244.0.14
+IPs:
+  IP:           10.244.0.14
+Controlled By:  ReplicaSet/demoapp-6b8b8cd4f5
+Containers:
+  tomcattrain:
+    Container ID:
+    Image:          tomcattrain:l0
+    Image ID:
+    Port:           8080/TCP
+    Host Port:      0/TCP
+    State:          Waiting
+      Reason:       ImagePullBackOff
+    Ready:          False
+    Restart Count:  0
+    Limits:
+      cpu:     100m
+      memory:  200Mi
+    Requests:
+      cpu:        100m
+      memory:     200Mi
+    Environment:  <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-m9k7k (ro)
+Conditions:
+  Type              Status
+  Initialized       True
+  Ready             False
+  ContainersReady   False
+  PodScheduled      True
+Volumes:
+  default-token-m9k7k:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  default-token-m9k7k
+    Optional:    false
+QoS Class:       Guaranteed
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type     Reason     Age                From               Message
+  ----     ------     ----               ----               -------
+  Normal   Scheduled  40s                default-scheduler  Successfully assigned default/demoapp-6b8b8cd4f5-tpz2q to kind-2-control-plane
+  Normal   BackOff    33s                kubelet            Back-off pulling image "tomcattrain:l0"
+  Warning  Failed     33s                kubelet            Error: ImagePullBackOff
+  Normal   Pulling    18s (x2 over 40s)  kubelet            Pulling image "tomcattrain:l0"
+  Warning  Failed     12s (x2 over 34s)  kubelet            Failed to pull image "tomcattrain:l0": rpc error: code = Unknown desc = failed to pull and unpack image "docker.io/library/tomcattrain:l0": failed to resolve reference "docker.io/library/tomcattrain:l0": pull access denied, repository does not exist or may require authorization: server message: insufficient_scope: authorization failed
+  Warning  Failed     12s (x2 over 34s)  kubelet            Error: ErrImagePull
+
+D:\Program Files\kind\docker>kubectl delete -f demoapp.yaml
+deployment.apps "demoapp" deleted
+service "demoapp-svc" deleted
+
+D:\Program Files\kind\docker>kubectl apply -f demoapp.yaml
+deployment.apps/demoapp created
+service/demoapp-svc created
+
+D:\Program Files\kind\docker>kubectl get pods
+NAME                       READY   STATUS              RESTARTS   AGE
+demoapp-688c787d66-7vr67   0/1     ContainerCreating   0          12s
+demoapp-688c787d66-bmkqn   0/1     ContainerCreating   0          12s
+demoapp-688c787d66-xcd8k   0/1     ErrImagePull        0          12s
+
+D:\Program Files\kind\docker>kubectl get pods
+NAME                       READY   STATUS              RESTARTS   AGE
+demoapp-688c787d66-7vr67   0/1     ContainerCreating   0          16s
+demoapp-688c787d66-bmkqn   0/1     ContainerCreating   0          16s
+demoapp-688c787d66-xcd8k   0/1     ErrImagePull        0          16s
+
+D:\Program Files\kind\docker>kubectl get pods
+NAME                       READY   STATUS         RESTARTS   AGE
+demoapp-688c787d66-7vr67   0/1     ErrImagePull   0          23s
+demoapp-688c787d66-bmkqn   0/1     ErrImagePull   0          23s
+demoapp-688c787d66-xcd8k   0/1     ErrImagePull   0          23s
+
+D:\Program Files\kind\docker>kubectl apply -f demoapp.yaml
+deployment.apps/demoapp configured
+service/demoapp-svc unchanged
+
+D:\Program Files\kind\docker>kubectl get pods
+NAME                       READY   STATUS              RESTARTS   AGE
+demoapp-669ddb9d44-zl7zc   0/1     ContainerCreating   0          6s
+demoapp-688c787d66-7vr67   0/1     ErrImagePull        0          2m12s
+demoapp-688c787d66-bmkqn   0/1     ImagePullBackOff    0          2m12s
+demoapp-688c787d66-xcd8k   0/1     ErrImagePull        0          2m12s
+
+D:\Program Files\kind\docker>kubectl get pods
+NAME                       READY   STATUS              RESTARTS   AGE
+demoapp-669ddb9d44-zl7zc   0/1     ContainerCreating   0          9s
+demoapp-688c787d66-7vr67   0/1     ErrImagePull        0          2m15s
+demoapp-688c787d66-bmkqn   0/1     ImagePullBackOff    0          2m15s
+demoapp-688c787d66-xcd8k   0/1     ErrImagePull        0          2m15s
+
+D:\Program Files\kind\docker>kubectl get pods
+NAME                       READY   STATUS              RESTARTS   AGE
+demoapp-669ddb9d44-zl7zc   0/1     ContainerCreating   0          12s
+demoapp-688c787d66-7vr67   0/1     ErrImagePull        0          2m18s
+demoapp-688c787d66-bmkqn   0/1     ImagePullBackOff    0          2m18s
+demoapp-688c787d66-xcd8k   0/1     ImagePullBackOff    0          2m18s
+
+D:\Program Files\kind\docker>kubectl get pods
+NAME                       READY   STATUS              RESTARTS   AGE
+demoapp-669ddb9d44-zl7zc   0/1     ContainerCreating   0          16s
+demoapp-688c787d66-7vr67   0/1     ErrImagePull        0          2m22s
+demoapp-688c787d66-bmkqn   0/1     ImagePullBackOff    0          2m22s
+demoapp-688c787d66-xcd8k   0/1     ImagePullBackOff    0          2m22s
+
+D:\Program Files\kind\docker>kubectl get pods
+NAME                       READY   STATUS              RESTARTS   AGE
+demoapp-669ddb9d44-zl7zc   0/1     ContainerCreating   0          18s
+demoapp-688c787d66-7vr67   0/1     ImagePullBackOff    0          2m24s
+demoapp-688c787d66-bmkqn   0/1     ImagePullBackOff    0          2m24s
+demoapp-688c787d66-xcd8k   0/1     ImagePullBackOff    0          2m24s
+
+D:\Program Files\kind\docker>kubectl get pods
+NAME                       READY   STATUS              RESTARTS   AGE
+demoapp-669ddb9d44-zl7zc   0/1     ContainerCreating   0          22s
+demoapp-688c787d66-7vr67   0/1     ImagePullBackOff    0          2m28s
+demoapp-688c787d66-bmkqn   0/1     ErrImagePull        0          2m28s
+demoapp-688c787d66-xcd8k   0/1     ImagePullBackOff    0          2m28s
+
+D:\Program Files\kind\docker>kubectl get pods
+NAME                       READY   STATUS              RESTARTS   AGE
+demoapp-669ddb9d44-zl7zc   0/1     ContainerCreating   0          24s
+demoapp-688c787d66-7vr67   0/1     ImagePullBackOff    0          2m30s
+demoapp-688c787d66-bmkqn   0/1     ErrImagePull        0          2m30s
+demoapp-688c787d66-xcd8k   0/1     ImagePullBackOff    0          2m30s
+
+D:\Program Files\kind\docker>kubectl get pods
+NAME                       READY   STATUS              RESTARTS   AGE
+demoapp-669ddb9d44-zl7zc   0/1     ContainerCreating   0          31s
+demoapp-688c787d66-7vr67   0/1     ImagePullBackOff    0          2m37s
+demoapp-688c787d66-bmkqn   0/1     ErrImagePull        0          2m37s
+demoapp-688c787d66-xcd8k   0/1     ImagePullBackOff    0          2m37s
+
+D:\Program Files\kind\docker>kubectl get pods
+NAME                       READY   STATUS              RESTARTS   AGE
+demoapp-669ddb9d44-zl7zc   0/1     ContainerCreating   0          34s
+demoapp-688c787d66-7vr67   0/1     ImagePullBackOff    0          2m40s
+demoapp-688c787d66-bmkqn   0/1     ImagePullBackOff    0          2m40s
+demoapp-688c787d66-xcd8k   0/1     ImagePullBackOff    0          2m40s
+
+D:\Program Files\kind\docker>kubectl describe pod demoapp-669ddb9d44-zl7zc
+Name:           demoapp-669ddb9d44-zl7zc
+Namespace:      default
+Priority:       0
+Node:           kind-2-control-plane/172.18.0.2
+Start Time:     Fri, 27 Nov 2020 23:48:07 +0530
+Labels:         app=demoapp
+                pod-template-hash=669ddb9d44
+Annotations:    <none>
+Status:         Pending
+IP:
+IPs:            <none>
+Controlled By:  ReplicaSet/demoapp-669ddb9d44
+Containers:
+  tomcattrain:
+    Container ID:
+    Image:          mohanraj123/mohanvoteapp123:1.01
+    Image ID:
+    Port:           8080/TCP
+    Host Port:      0/TCP
+    State:          Waiting
+      Reason:       ContainerCreating
+    Ready:          False
+    Restart Count:  0
+    Limits:
+      cpu:     100m
+      memory:  200Mi
+    Requests:
+      cpu:        100m
+      memory:     200Mi
+    Environment:  <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-m9k7k (ro)
+Conditions:
+  Type              Status
+  Initialized       True
+  Ready             False
+  ContainersReady   False
+  PodScheduled      True
+Volumes:
+  default-token-m9k7k:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  default-token-m9k7k
+    Optional:    false
+QoS Class:       Guaranteed
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age   From               Message
+  ----    ------     ----  ----               -------
+  Normal  Scheduled  51s   default-scheduler  Successfully assigned default/demoapp-669ddb9d44-zl7zc to kind-2-control-plane
+  Normal  Pulling    50s   kubelet            Pulling image "mohanraj123/mohanvoteapp123:1.01"
+
+D:\Program Files\kind\docker>kubectl get pods
+NAME                       READY   STATUS              RESTARTS   AGE
+demoapp-669ddb9d44-zl7zc   0/1     ContainerCreating   0          59s
+demoapp-688c787d66-7vr67   0/1     ImagePullBackOff    0          3m5s
+demoapp-688c787d66-bmkqn   0/1     ImagePullBackOff    0          3m5s
+demoapp-688c787d66-xcd8k   0/1     ImagePullBackOff    0          3m5s
+
+D:\Program Files\kind\docker>kubectl get pods
+NAME                       READY   STATUS              RESTARTS   AGE
+demoapp-669ddb9d44-zl7zc   0/1     ContainerCreating   0          62s
+demoapp-688c787d66-7vr67   0/1     ImagePullBackOff    0          3m8s
+demoapp-688c787d66-bmkqn   0/1     ImagePullBackOff    0          3m8s
+demoapp-688c787d66-xcd8k   0/1     ImagePullBackOff    0          3m8s
+
+D:\Program Files\kind\docker>kubectl get pods
+NAME                       READY   STATUS              RESTARTS   AGE
+demoapp-669ddb9d44-zl7zc   0/1     ContainerCreating   0          115s
+demoapp-688c787d66-7vr67   0/1     ImagePullBackOff    0          4m1s
+demoapp-688c787d66-bmkqn   0/1     ImagePullBackOff    0          4m1s
+demoapp-688c787d66-xcd8k   0/1     ImagePullBackOff    0          4m1s
+
+D:\Program Files\kind\docker>kubectl get pods
+NAME                       READY   STATUS              RESTARTS   AGE
+demoapp-669ddb9d44-zl7zc   0/1     ContainerCreating   0          117s
+demoapp-688c787d66-7vr67   0/1     ImagePullBackOff    0          4m3s
+demoapp-688c787d66-bmkqn   0/1     ImagePullBackOff    0          4m3s
+demoapp-688c787d66-xcd8k   0/1     ImagePullBackOff    0          4m3s
+
+D:\Program Files\kind\docker>kubectl get pods
+NAME                       READY   STATUS              RESTARTS   AGE
+demoapp-669ddb9d44-2vm82   0/1     ContainerCreating   0          1s
+demoapp-669ddb9d44-zl7zc   1/1     Running             0          118s
+demoapp-688c787d66-7vr67   0/1     ImagePullBackOff    0          4m4s
+demoapp-688c787d66-bmkqn   0/1     ImagePullBackOff    0          4m4s
+demoapp-688c787d66-xcd8k   0/1     Terminating         0          4m4s
+
+D:\Program Files\kind\docker>kubectl get pods
+NAME                       READY   STATUS        RESTARTS   AGE
+demoapp-669ddb9d44-2vm82   1/1     Running       0          4s
+demoapp-669ddb9d44-q4z5r   1/1     Running       0          2s
+demoapp-669ddb9d44-zl7zc   1/1     Running       0          2m1s
+demoapp-688c787d66-bmkqn   0/1     Terminating   0          4m7s
+
+D:\Program Files\kind\docker>kubectl get all
+NAME                           READY   STATUS    RESTARTS   AGE
+pod/demoapp-669ddb9d44-2vm82   1/1     Running   0          44s
+pod/demoapp-669ddb9d44-q4z5r   1/1     Running   0          42s
+pod/demoapp-669ddb9d44-zl7zc   1/1     Running   0          2m41s
+
+NAME                  TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)    AGE
+service/demoapp-svc   ClusterIP   10.107.104.212   <none>        8080/TCP   4m47s
+service/kubernetes    ClusterIP   10.96.0.1        <none>        443/TCP    95m
+
+NAME                      READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/demoapp   3/3     3            3           4m48s
+
+NAME                                 DESIRED   CURRENT   READY   AGE
+replicaset.apps/demoapp-669ddb9d44   3         3         3       2m41s
+replicaset.apps/demoapp-688c787d66   0         0         0       4m48s
+
+D:\Program Files\kind\docker>kubectl port-forward service/demoapp-svc  39393:8080
+Forwarding from 127.0.0.1:39393 -> 8080
+Forwarding from [::1]:39393 -> 8080
+Handling connection for 39393
+Handling connection for 39393
+E1127 23:52:19.825315   18088 portforward.go:400] an error occurred forwarding 39393 -> 8080: error forwarding port 8080 to pod 87a0f3f8aa59a2b7690ee6e00c59752c3d823b410b3371d65b0550778c3d5aee, uid : failed to execute portforward in network namespace "/var/run/netns/cni-a1ba5590-bf00-4119-4529-6b9354486be8": failed to dial 8080: dial tcp4 127.0.0.1:8080: connect: connection refused
+E1127 23:52:19.831319   18088 portforward.go:400] an error occurred forwarding 39393 -> 8080: error forwarding port 8080 to pod 87a0f3f8aa59a2b7690ee6e00c59752c3d823b410b3371d65b0550778c3d5aee, uid : failed to execute portforward in network namespace "/var/run/netns/cni-a1ba5590-bf00-4119-4529-6b9354486be8": failed to dial 8080: dial tcp4 127.0.0.1:8080: connect: connection refused
+Handling connection for 39393
+E1127 23:52:19.864406   18088 portforward.go:400] an error occurred forwarding 39393 -> 8080: error forwarding port 8080 to pod 87a0f3f8aa59a2b7690ee6e00c59752c3d823b410b3371d65b0550778c3d5aee, uid : failed to execute portforward in network namespace "/var/run/netns/cni-a1ba5590-bf00-4119-4529-6b9354486be8": failed to dial 8080: dial tcp4 127.0.0.1:8080: connect: connection refused
+Handling connection for 39393
+Handling connection for 39393
+Handling connection for 39393
+E1127 23:52:50.924854   18088 portforward.go:340] error creating error stream for port 39393 -> 8080: Timeout occured
+E1127 23:52:50.932852   18088 portforward.go:362] error creating forwarding stream for port 39393 -> 8080: Timeout occured
+Handling connection for 39393
+E1127 23:53:03.748215   18088 portforward.go:362] error creating forwarding stream for port 39393 -> 8080: Timeout occured
+E1127 23:53:21.412976   18088 portforward.go:340] error creating error stream for port 39393 -> 8080: Timeout occured
+Handling connection for 39393
+
+D:\Program Files\kind\docker>kubectl port-forward service/demoapp-svc  9090:8080
+Forwarding from 127.0.0.1:9090 -> 8080
+Forwarding from [::1]:9090 -> 8080
+Handling connection for 9090
+Handling connection for 9090
+E1128 00:04:34.627019    7188 portforward.go:400] an error occurred forwarding 9090 -> 8080: error forwarding port 8080 to pod 87a0f3f8aa59a2b7690ee6e00c59752c3d823b410b3371d65b0550778c3d5aee, uid : failed to execute portforward in network namespace "/var/run/netns/cni-a1ba5590-bf00-4119-4529-6b9354486be8": failed to dial 8080: dial tcp4 127.0.0.1:8080: connect: connection refused
+E1128 00:04:34.628018    7188 portforward.go:400] an error occurred forwarding 9090 -> 8080: error forwarding port 8080 to pod 87a0f3f8aa59a2b7690ee6e00c59752c3d823b410b3371d65b0550778c3d5aee, uid : failed to execute portforward in network namespace "/var/run/netns/cni-a1ba5590-bf00-4119-4529-6b9354486be8": failed to dial 8080: dial tcp4 127.0.0.1:8080: connect: connection refused
+Handling connection for 9090
+E1128 00:04:34.659537    7188 portforward.go:400] an error occurred forwarding 9090 -> 8080: error forwarding port 8080 to pod 87a0f3f8aa59a2b7690ee6e00c59752c3d823b410b3371d65b0550778c3d5aee, uid : failed to execute portforward in network namespace "/var/run/netns/cni-a1ba5590-bf00-4119-4529-6b9354486be8": failed to dial 8080: dial tcp4 127.0.0.1:8080: connect: connection refused
+Handling connection for 9090
+Handling connection for 9090
+E1128 00:04:35.752305    7188 portforward.go:400] an error occurred forwarding 9090 -> 8080: error forwarding port 8080 to pod 87a0f3f8aa59a2b7690ee6e00c59752c3d823b410b3371d65b0550778c3d5aee, uid : failed to execute portforward in network namespace "/var/run/netns/cni-a1ba5590-bf00-4119-4529-6b9354486be8": failed to dial 8080: dial tcp4 127.0.0.1:8080: connect: connection refused
+E1128 00:05:05.741505    7188 portforward.go:362] error creating forwarding stream for port 9090 -> 8080: Timeout occured
+Handling connection for 9090
+E1128 00:05:35.747104    7188 portforward.go:340] error creating error stream for port 9090 -> 8080: Timeout occured
+Handling connection for 9090
+Handling connection for 9090
+E1128 00:06:21.250058    7188 portforward.go:400] an error occurred forwarding 9090 -> 8080: error forwarding port 8080 to pod 87a0f3f8aa59a2b7690ee6e00c59752c3d823b410b3371d65b0550778c3d5aee, uid : failed to execute portforward in network namespace "/var/run/netns/cni-a1ba5590-bf00-4119-4529-6b9354486be8": failed to dial 8080: dial tcp4 127.0.0.1:8080: connect: connection refused
+
+D:\Program Files\kind\docker>kubectl get svc
+NAME          TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)    AGE
+demoapp-svc   ClusterIP   10.107.104.212   <none>        8080/TCP   20m
+kubernetes    ClusterIP   10.96.0.1        <none>        443/TCP    111m
+
+D:\Program Files\kind\docker>kubectl get all
+NAME                           READY   STATUS    RESTARTS   AGE
+pod/demoapp-669ddb9d44-2vm82   1/1     Running   0          16m
+pod/demoapp-669ddb9d44-q4z5r   1/1     Running   0          16m
+pod/demoapp-669ddb9d44-zl7zc   1/1     Running   0          18m
+
+NAME                  TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)    AGE
+service/demoapp-svc   ClusterIP   10.107.104.212   <none>        8080/TCP   20m
+service/kubernetes    ClusterIP   10.96.0.1        <none>        443/TCP    111m
+
+NAME                      READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/demoapp   3/3     3            3           20m
+
+NAME                                 DESIRED   CURRENT   READY   AGE
+replicaset.apps/demoapp-669ddb9d44   3         3         3       18m
+replicaset.apps/demoapp-688c787d66   0         0         0       20m
+
+D:\Program Files\kind\docker>kubectl port-forward service/demoapp-svc 32232:8080
+Forwarding from 127.0.0.1:32232 -> 8080
+Forwarding from [::1]:32232 -> 8080
+Handling connection for 32232
+Handling connection for 32232
+E1128 00:08:37.436132   23380 portforward.go:400] an error occurred forwarding 32232 -> 8080: error forwarding port 8080 to pod 87a0f3f8aa59a2b7690ee6e00c59752c3d823b410b3371d65b0550778c3d5aee, uid : failed to execute portforward in network namespace "/var/run/netns/cni-a1ba5590-bf00-4119-4529-6b9354486be8": failed to dial 8080: dial tcp4 127.0.0.1:8080: connect: connection refused
+E1128 00:08:37.461134   23380 portforward.go:400] an error occurred forwarding 32232 -> 8080: error forwarding port 8080 to pod 87a0f3f8aa59a2b7690ee6e00c59752c3d823b410b3371d65b0550778c3d5aee, uid : failed to execute portforward in network namespace "/var/run/netns/cni-a1ba5590-bf00-4119-4529-6b9354486be8": failed to dial 8080: dial tcp4 127.0.0.1:8080: connect: connection refused
+Handling connection for 32232
+E1128 00:08:37.493729   23380 portforward.go:400] an error occurred forwarding 32232 -> 8080: error forwarding port 8080 to pod 87a0f3f8aa59a2b7690ee6e00c59752c3d823b410b3371d65b0550778c3d5aee, uid : failed to execute portforward in network namespace "/var/run/netns/cni-a1ba5590-bf00-4119-4529-6b9354486be8": failed to dial 8080: dial tcp4 127.0.0.1:8080: connect: connection refused
+Handling connection for 32232
+Handling connection for 32232
+E1128 00:08:38.567144   23380 portforward.go:400] an error occurred forwarding 32232 -> 8080: error forwarding port 8080 to pod 87a0f3f8aa59a2b7690ee6e00c59752c3d823b410b3371d65b0550778c3d5aee, uid : failed to execute portforward in network namespace "/var/run/netns/cni-a1ba5590-bf00-4119-4529-6b9354486be8": failed to dial 8080: dial tcp4 127.0.0.1:8080: connect: connection refused
+
+D:\Program Files\kind\docker>kubectl get pods
+NAME                       READY   STATUS    RESTARTS   AGE
+demoapp-669ddb9d44-2vm82   1/1     Running   0          19m
+demoapp-669ddb9d44-q4z5r   1/1     Running   0          19m
+demoapp-669ddb9d44-zl7zc   1/1     Running   0          21m
+
+D:\Program Files\kind\docker>kubectl port-forward demoapp-669ddb9d44-2vm82 32221:8080
+Forwarding from 127.0.0.1:32221 -> 8080
+Forwarding from [::1]:32221 -> 8080
+Handling connection for 32221
+Handling connection for 32221
+E1128 00:10:02.689340   14788 portforward.go:400] an error occurred forwarding 32221 -> 8080: error forwarding port 8080 to pod 45b53db9f6b7cb391d952748a095476914e7f10ea5059ae294536508d1966aa9, uid : failed to execute portforward in network namespace "/var/run/netns/cni-cdc845b2-5ccb-756c-2005-4046e0a55469": failed to dial 8080: dial tcp4 127.0.0.1:8080: connect: connection refused
+E1128 00:10:02.693346   14788 portforward.go:400] an error occurred forwarding 32221 -> 8080: error forwarding port 8080 to pod 45b53db9f6b7cb391d952748a095476914e7f10ea5059ae294536508d1966aa9, uid : failed to execute portforward in network namespace "/var/run/netns/cni-cdc845b2-5ccb-756c-2005-4046e0a55469": failed to dial 8080: dial tcp4 127.0.0.1:8080: connect: connection refused
+Handling connection for 32221
+E1128 00:10:02.707342   14788 portforward.go:400] an error occurred forwarding 32221 -> 8080: error forwarding port 8080 to pod 45b53db9f6b7cb391d952748a095476914e7f10ea5059ae294536508d1966aa9, uid : failed to execute portforward in network namespace "/var/run/netns/cni-cdc845b2-5ccb-756c-2005-4046e0a55469": failed to dial 8080: dial tcp4 127.0.0.1:8080: connect: connection refused
+Handling connection for 32221
+Handling connection for 32221
+E1128 00:10:33.760876   14788 portforward.go:340] error creating error stream for port 32221 -> 8080: Timeout occured
+E1128 00:10:33.769876   14788 portforward.go:362] error creating forwarding stream for port 32221 -> 8080: Timeout occured
+Handling connection for 32221
+
+D:\Program Files\kind\docker>kubectl get pods
+NAME                       READY   STATUS    RESTARTS   AGE
+demoapp-669ddb9d44-2vm82   1/1     Running   0          20m
+demoapp-669ddb9d44-q4z5r   1/1     Running   0          20m
+demoapp-669ddb9d44-zl7zc   1/1     Running   0          22m
+
+D:\Program Files\kind\docker>kubectl logs demoapp-669ddb9d44-2vm82
+Checking for script in /app/prestart.sh
+Running script /app/prestart.sh
+Running inside /app/prestart.sh, you could add migrations to this file, e.g.:
+
+#! /usr/bin/env bash
+
+# Let the DB start
+sleep 10;
+# Run migrations
+alembic upgrade head
+
+/usr/lib/python2.7/dist-packages/supervisor/options.py:298: UserWarning: Supervisord is running as root and it is searching for its configuration file in default locations (including its current working directory); you probably want to specify a "-c" argument specifying an absolute path to a configuration file for improved security.
+  'Supervisord is running as root and it is searching '
+2020-11-27 18:20:09,049 CRIT Supervisor running as root (no user in config file)
+2020-11-27 18:20:09,049 INFO Included extra file "/etc/supervisor/conf.d/supervisord.conf" during parsing
+2020-11-27 18:20:09,150 INFO RPC interface 'supervisor' initialized
+2020-11-27 18:20:09,150 CRIT Server 'unix_http_server' running without any HTTP authentication checking
+2020-11-27 18:20:09,150 INFO supervisord started with pid 1
+2020-11-27 18:20:10,153 INFO spawned: 'nginx' with pid 11
+2020-11-27 18:20:10,155 INFO spawned: 'uwsgi' with pid 12
+[uWSGI] getting INI configuration from /app/uwsgi.ini
+[uWSGI] getting INI configuration from /etc/uwsgi/uwsgi.ini
+
+;uWSGI instance configuration
+[uwsgi]
+cheaper = 2
+processes = 16
+ini = /app/uwsgi.ini
+module = main
+callable = app
+ini = /etc/uwsgi/uwsgi.ini
+socket = /tmp/uwsgi.sock
+chown-socket = nginx:nginx
+chmod-socket = 664
+hook-master-start = unix_signal:15 gracefully_kill_them_all
+need-app = true
+die-on-term = true
+show-config = true
+;end of configuration
+
+*** Starting uWSGI 2.0.18 (64bit) on [Fri Nov 27 18:20:10 2020] ***
+compiled with version: 6.3.0 20170516 on 09 August 2019 03:04:38
+os: Linux-5.4.39-linuxkit #1 SMP Fri May 8 23:03:06 UTC 2020
+nodename: demoapp-669ddb9d44-2vm82
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /app
+detected binary path: /usr/local/bin/uwsgi
+your memory page size is 4096 bytes
+detected max file descriptor number: 1048576
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /tmp/uwsgi.sock fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) ***
+Python version: 3.6.9 (default, Jul 13 2019, 15:04:38)  [GCC 6.3.0 20170516]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x5587dc5f0570
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) ***
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 1239640 bytes (1210 KB) for 16 cores
+*** Operational MODE: preforking ***
+2020-11-27 18:20:12,047 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-27 18:20:12,047 INFO success: uwsgi entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+Traceback (most recent call last):
+  File "./main.py", line 29, in <module>
+    redis_server = os.environ['REDIS']
+  File "/usr/local/lib/python3.6/os.py", line 669, in __getitem__
+    raise KeyError(key) from None
+KeyError: 'REDIS'
+unable to load app 0 (mountpoint='') (callable not found or import error)
+*** no app loaded. GAME OVER ***
+2020-11-27 18:20:15,644 INFO exited: uwsgi (exit status 22; not expected)
+2020-11-27 18:20:16,651 INFO spawned: 'uwsgi' with pid 15
+[uWSGI] getting INI configuration from /app/uwsgi.ini
+[uWSGI] getting INI configuration from /etc/uwsgi/uwsgi.ini
+
+;uWSGI instance configuration
+[uwsgi]
+cheaper = 2
+processes = 16
+ini = /app/uwsgi.ini
+module = main
+callable = app
+ini = /etc/uwsgi/uwsgi.ini
+socket = /tmp/uwsgi.sock
+chown-socket = nginx:nginx
+chmod-socket = 664
+hook-master-start = unix_signal:15 gracefully_kill_them_all
+need-app = true
+die-on-term = true
+show-config = true
+;end of configuration
+
+*** Starting uWSGI 2.0.18 (64bit) on [Fri Nov 27 18:20:16 2020] ***
+compiled with version: 6.3.0 20170516 on 09 August 2019 03:04:38
+os: Linux-5.4.39-linuxkit #1 SMP Fri May 8 23:03:06 UTC 2020
+nodename: demoapp-669ddb9d44-2vm82
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /app
+detected binary path: /usr/local/bin/uwsgi
+your memory page size is 4096 bytes
+detected max file descriptor number: 1048576
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /tmp/uwsgi.sock fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) ***
+Python version: 3.6.9 (default, Jul 13 2019, 15:04:38)  [GCC 6.3.0 20170516]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x56061e072570
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) ***
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 1239640 bytes (1210 KB) for 16 cores
+*** Operational MODE: preforking ***
+2020-11-27 18:20:18,043 INFO success: uwsgi entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+Traceback (most recent call last):
+  File "./main.py", line 29, in <module>
+    redis_server = os.environ['REDIS']
+  File "/usr/local/lib/python3.6/os.py", line 669, in __getitem__
+    raise KeyError(key) from None
+KeyError: 'REDIS'
+unable to load app 0 (mountpoint='') (callable not found or import error)
+*** no app loaded. GAME OVER ***
+2020-11-27 18:20:19,641 INFO exited: uwsgi (exit status 22; not expected)
+2020-11-27 18:20:19,643 INFO spawned: 'uwsgi' with pid 17
+[uWSGI] getting INI configuration from /app/uwsgi.ini
+[uWSGI] getting INI configuration from /etc/uwsgi/uwsgi.ini
+
+;uWSGI instance configuration
+[uwsgi]
+cheaper = 2
+processes = 16
+ini = /app/uwsgi.ini
+module = main
+callable = app
+ini = /etc/uwsgi/uwsgi.ini
+socket = /tmp/uwsgi.sock
+chown-socket = nginx:nginx
+chmod-socket = 664
+hook-master-start = unix_signal:15 gracefully_kill_them_all
+need-app = true
+die-on-term = true
+show-config = true
+;end of configuration
+
+*** Starting uWSGI 2.0.18 (64bit) on [Fri Nov 27 18:20:19 2020] ***
+compiled with version: 6.3.0 20170516 on 09 August 2019 03:04:38
+os: Linux-5.4.39-linuxkit #1 SMP Fri May 8 23:03:06 UTC 2020
+nodename: demoapp-669ddb9d44-2vm82
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /app
+detected binary path: /usr/local/bin/uwsgi
+your memory page size is 4096 bytes
+detected max file descriptor number: 1048576
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /tmp/uwsgi.sock fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) ***
+Python version: 3.6.9 (default, Jul 13 2019, 15:04:38)  [GCC 6.3.0 20170516]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x55fa8b7ef570
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) ***
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 1239640 bytes (1210 KB) for 16 cores
+*** Operational MODE: preforking ***
+2020-11-27 18:20:20,946 INFO success: uwsgi entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+Traceback (most recent call last):
+  File "./main.py", line 29, in <module>
+    redis_server = os.environ['REDIS']
+  File "/usr/local/lib/python3.6/os.py", line 669, in __getitem__
+    raise KeyError(key) from None
+KeyError: 'REDIS'
+unable to load app 0 (mountpoint='') (callable not found or import error)
+*** no app loaded. GAME OVER ***
+2020-11-27 18:20:21,841 INFO exited: uwsgi (exit status 22; not expected)
+2020-11-27 18:20:22,843 INFO spawned: 'uwsgi' with pid 19
+[uWSGI] getting INI configuration from /app/uwsgi.ini
+[uWSGI] getting INI configuration from /etc/uwsgi/uwsgi.ini
+
+;uWSGI instance configuration
+[uwsgi]
+cheaper = 2
+processes = 16
+ini = /app/uwsgi.ini
+module = main
+callable = app
+ini = /etc/uwsgi/uwsgi.ini
+socket = /tmp/uwsgi.sock
+chown-socket = nginx:nginx
+chmod-socket = 664
+hook-master-start = unix_signal:15 gracefully_kill_them_all
+need-app = true
+die-on-term = true
+show-config = true
+;end of configuration
+
+*** Starting uWSGI 2.0.18 (64bit) on [Fri Nov 27 18:20:22 2020] ***
+compiled with version: 6.3.0 20170516 on 09 August 2019 03:04:38
+os: Linux-5.4.39-linuxkit #1 SMP Fri May 8 23:03:06 UTC 2020
+nodename: demoapp-669ddb9d44-2vm82
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /app
+detected binary path: /usr/local/bin/uwsgi
+your memory page size is 4096 bytes
+detected max file descriptor number: 1048576
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /tmp/uwsgi.sock fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) ***
+Python version: 3.6.9 (default, Jul 13 2019, 15:04:38)  [GCC 6.3.0 20170516]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x562d0b859570
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) ***
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 1239640 bytes (1210 KB) for 16 cores
+*** Operational MODE: preforking ***
+2020-11-27 18:20:24,046 INFO success: uwsgi entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+Traceback (most recent call last):
+  File "./main.py", line 29, in <module>
+    redis_server = os.environ['REDIS']
+  File "/usr/local/lib/python3.6/os.py", line 669, in __getitem__
+    raise KeyError(key) from None
+KeyError: 'REDIS'
+unable to load app 0 (mountpoint='') (callable not found or import error)
+*** no app loaded. GAME OVER ***
+2020-11-27 18:20:24,845 INFO exited: uwsgi (exit status 22; not expected)
+2020-11-27 18:20:25,850 INFO spawned: 'uwsgi' with pid 21
+[uWSGI] getting INI configuration from /app/uwsgi.ini
+[uWSGI] getting INI configuration from /etc/uwsgi/uwsgi.ini
+
+;uWSGI instance configuration
+[uwsgi]
+cheaper = 2
+processes = 16
+ini = /app/uwsgi.ini
+module = main
+callable = app
+ini = /etc/uwsgi/uwsgi.ini
+socket = /tmp/uwsgi.sock
+chown-socket = nginx:nginx
+chmod-socket = 664
+hook-master-start = unix_signal:15 gracefully_kill_them_all
+need-app = true
+die-on-term = true
+show-config = true
+;end of configuration
+
+*** Starting uWSGI 2.0.18 (64bit) on [Fri Nov 27 18:20:25 2020] ***
+compiled with version: 6.3.0 20170516 on 09 August 2019 03:04:38
+os: Linux-5.4.39-linuxkit #1 SMP Fri May 8 23:03:06 UTC 2020
+nodename: demoapp-669ddb9d44-2vm82
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /app
+detected binary path: /usr/local/bin/uwsgi
+your memory page size is 4096 bytes
+detected max file descriptor number: 1048576
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /tmp/uwsgi.sock fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) ***
+Python version: 3.6.9 (default, Jul 13 2019, 15:04:38)  [GCC 6.3.0 20170516]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x55eef2554570
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) ***
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 1239640 bytes (1210 KB) for 16 cores
+*** Operational MODE: preforking ***
+2020-11-27 18:20:27,053 INFO success: uwsgi entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+Traceback (most recent call last):
+  File "./main.py", line 29, in <module>
+    redis_server = os.environ['REDIS']
+  File "/usr/local/lib/python3.6/os.py", line 669, in __getitem__
+    raise KeyError(key) from None
+KeyError: 'REDIS'
+unable to load app 0 (mountpoint='') (callable not found or import error)
+*** no app loaded. GAME OVER ***
+2020-11-27 18:20:29,247 INFO exited: uwsgi (exit status 22; not expected)
+2020-11-27 18:20:30,250 INFO spawned: 'uwsgi' with pid 23
+[uWSGI] getting INI configuration from /app/uwsgi.ini
+[uWSGI] getting INI configuration from /etc/uwsgi/uwsgi.ini
+
+;uWSGI instance configuration
+[uwsgi]
+cheaper = 2
+processes = 16
+ini = /app/uwsgi.ini
+module = main
+callable = app
+ini = /etc/uwsgi/uwsgi.ini
+socket = /tmp/uwsgi.sock
+chown-socket = nginx:nginx
+chmod-socket = 664
+hook-master-start = unix_signal:15 gracefully_kill_them_all
+need-app = true
+die-on-term = true
+show-config = true
+;end of configuration
+
+*** Starting uWSGI 2.0.18 (64bit) on [Fri Nov 27 18:20:30 2020] ***
+compiled with version: 6.3.0 20170516 on 09 August 2019 03:04:38
+os: Linux-5.4.39-linuxkit #1 SMP Fri May 8 23:03:06 UTC 2020
+nodename: demoapp-669ddb9d44-2vm82
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /app
+detected binary path: /usr/local/bin/uwsgi
+your memory page size is 4096 bytes
+detected max file descriptor number: 1048576
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /tmp/uwsgi.sock fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) ***
+Python version: 3.6.9 (default, Jul 13 2019, 15:04:38)  [GCC 6.3.0 20170516]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x55e8aaddf570
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) ***
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 1239640 bytes (1210 KB) for 16 cores
+*** Operational MODE: preforking ***
+2020-11-27 18:20:31,449 INFO success: uwsgi entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+Traceback (most recent call last):
+  File "./main.py", line 29, in <module>
+    redis_server = os.environ['REDIS']
+  File "/usr/local/lib/python3.6/os.py", line 669, in __getitem__
+    raise KeyError(key) from None
+KeyError: 'REDIS'
+unable to load app 0 (mountpoint='') (callable not found or import error)
+*** no app loaded. GAME OVER ***
+2020-11-27 18:20:32,947 INFO exited: uwsgi (exit status 22; not expected)
+2020-11-27 18:20:33,949 INFO spawned: 'uwsgi' with pid 25
+[uWSGI] getting INI configuration from /app/uwsgi.ini
+[uWSGI] getting INI configuration from /etc/uwsgi/uwsgi.ini
+
+;uWSGI instance configuration
+[uwsgi]
+cheaper = 2
+processes = 16
+ini = /app/uwsgi.ini
+module = main
+callable = app
+ini = /etc/uwsgi/uwsgi.ini
+socket = /tmp/uwsgi.sock
+chown-socket = nginx:nginx
+chmod-socket = 664
+hook-master-start = unix_signal:15 gracefully_kill_them_all
+need-app = true
+die-on-term = true
+show-config = true
+;end of configuration
+
+*** Starting uWSGI 2.0.18 (64bit) on [Fri Nov 27 18:20:34 2020] ***
+compiled with version: 6.3.0 20170516 on 09 August 2019 03:04:38
+os: Linux-5.4.39-linuxkit #1 SMP Fri May 8 23:03:06 UTC 2020
+nodename: demoapp-669ddb9d44-2vm82
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /app
+detected binary path: /usr/local/bin/uwsgi
+your memory page size is 4096 bytes
+detected max file descriptor number: 1048576
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /tmp/uwsgi.sock fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) ***
+Python version: 3.6.9 (default, Jul 13 2019, 15:04:38)  [GCC 6.3.0 20170516]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x55817f508570
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) ***
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 1239640 bytes (1210 KB) for 16 cores
+*** Operational MODE: preforking ***
+2020-11-27 18:20:35,246 INFO success: uwsgi entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+Traceback (most recent call last):
+  File "./main.py", line 29, in <module>
+    redis_server = os.environ['REDIS']
+  File "/usr/local/lib/python3.6/os.py", line 669, in __getitem__
+    raise KeyError(key) from None
+KeyError: 'REDIS'
+unable to load app 0 (mountpoint='') (callable not found or import error)
+*** no app loaded. GAME OVER ***
+2020-11-27 18:20:36,247 INFO exited: uwsgi (exit status 22; not expected)
+2020-11-27 18:20:37,250 INFO spawned: 'uwsgi' with pid 27
+[uWSGI] getting INI configuration from /app/uwsgi.ini
+[uWSGI] getting INI configuration from /etc/uwsgi/uwsgi.ini
+
+;uWSGI instance configuration
+[uwsgi]
+cheaper = 2
+processes = 16
+ini = /app/uwsgi.ini
+module = main
+callable = app
+ini = /etc/uwsgi/uwsgi.ini
+socket = /tmp/uwsgi.sock
+chown-socket = nginx:nginx
+chmod-socket = 664
+hook-master-start = unix_signal:15 gracefully_kill_them_all
+need-app = true
+die-on-term = true
+show-config = true
+;end of configuration
+
+*** Starting uWSGI 2.0.18 (64bit) on [Fri Nov 27 18:20:37 2020] ***
+compiled with version: 6.3.0 20170516 on 09 August 2019 03:04:38
+os: Linux-5.4.39-linuxkit #1 SMP Fri May 8 23:03:06 UTC 2020
+nodename: demoapp-669ddb9d44-2vm82
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /app
+detected binary path: /usr/local/bin/uwsgi
+your memory page size is 4096 bytes
+detected max file descriptor number: 1048576
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /tmp/uwsgi.sock fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) ***
+Python version: 3.6.9 (default, Jul 13 2019, 15:04:38)  [GCC 6.3.0 20170516]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x562c44076570
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) ***
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 1239640 bytes (1210 KB) for 16 cores
+*** Operational MODE: preforking ***
+2020-11-27 18:20:38,647 INFO success: uwsgi entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+Traceback (most recent call last):
+  File "./main.py", line 29, in <module>
+    redis_server = os.environ['REDIS']
+  File "/usr/local/lib/python3.6/os.py", line 669, in __getitem__
+    raise KeyError(key) from None
+KeyError: 'REDIS'
+unable to load app 0 (mountpoint='') (callable not found or import error)
+*** no app loaded. GAME OVER ***
+2020-11-27 18:20:40,245 INFO exited: uwsgi (exit status 22; not expected)
+2020-11-27 18:20:41,248 INFO spawned: 'uwsgi' with pid 29
+[uWSGI] getting INI configuration from /app/uwsgi.ini
+[uWSGI] getting INI configuration from /etc/uwsgi/uwsgi.ini
+
+;uWSGI instance configuration
+[uwsgi]
+cheaper = 2
+processes = 16
+ini = /app/uwsgi.ini
+module = main
+callable = app
+ini = /etc/uwsgi/uwsgi.ini
+socket = /tmp/uwsgi.sock
+chown-socket = nginx:nginx
+chmod-socket = 664
+hook-master-start = unix_signal:15 gracefully_kill_them_all
+need-app = true
+die-on-term = true
+show-config = true
+;end of configuration
+
+*** Starting uWSGI 2.0.18 (64bit) on [Fri Nov 27 18:20:41 2020] ***
+compiled with version: 6.3.0 20170516 on 09 August 2019 03:04:38
+os: Linux-5.4.39-linuxkit #1 SMP Fri May 8 23:03:06 UTC 2020
+nodename: demoapp-669ddb9d44-2vm82
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /app
+detected binary path: /usr/local/bin/uwsgi
+your memory page size is 4096 bytes
+detected max file descriptor number: 1048576
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /tmp/uwsgi.sock fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) ***
+Python version: 3.6.9 (default, Jul 13 2019, 15:04:38)  [GCC 6.3.0 20170516]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x55b78822d570
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) ***
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 1239640 bytes (1210 KB) for 16 cores
+*** Operational MODE: preforking ***
+2020-11-27 18:20:42,545 INFO success: uwsgi entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+Traceback (most recent call last):
+  File "./main.py", line 29, in <module>
+    redis_server = os.environ['REDIS']
+  File "/usr/local/lib/python3.6/os.py", line 669, in __getitem__
+    raise KeyError(key) from None
+KeyError: 'REDIS'
+unable to load app 0 (mountpoint='') (callable not found or import error)
+*** no app loaded. GAME OVER ***
+2020-11-27 18:20:44,346 INFO exited: uwsgi (exit status 22; not expected)
+2020-11-27 18:20:45,349 INFO spawned: 'uwsgi' with pid 31
+[uWSGI] getting INI configuration from /app/uwsgi.ini
+[uWSGI] getting INI configuration from /etc/uwsgi/uwsgi.ini
+
+;uWSGI instance configuration
+[uwsgi]
+cheaper = 2
+processes = 16
+ini = /app/uwsgi.ini
+module = main
+callable = app
+ini = /etc/uwsgi/uwsgi.ini
+socket = /tmp/uwsgi.sock
+chown-socket = nginx:nginx
+chmod-socket = 664
+hook-master-start = unix_signal:15 gracefully_kill_them_all
+need-app = true
+die-on-term = true
+show-config = true
+;end of configuration
+
+*** Starting uWSGI 2.0.18 (64bit) on [Fri Nov 27 18:20:45 2020] ***
+compiled with version: 6.3.0 20170516 on 09 August 2019 03:04:38
+os: Linux-5.4.39-linuxkit #1 SMP Fri May 8 23:03:06 UTC 2020
+nodename: demoapp-669ddb9d44-2vm82
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /app
+detected binary path: /usr/local/bin/uwsgi
+your memory page size is 4096 bytes
+detected max file descriptor number: 1048576
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /tmp/uwsgi.sock fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) ***
+Python version: 3.6.9 (default, Jul 13 2019, 15:04:38)  [GCC 6.3.0 20170516]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x5630e9e53570
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) ***
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 1239640 bytes (1210 KB) for 16 cores
+*** Operational MODE: preforking ***
+2020-11-27 18:20:46,551 INFO success: uwsgi entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+Traceback (most recent call last):
+  File "./main.py", line 29, in <module>
+    redis_server = os.environ['REDIS']
+  File "/usr/local/lib/python3.6/os.py", line 669, in __getitem__
+    raise KeyError(key) from None
+KeyError: 'REDIS'
+unable to load app 0 (mountpoint='') (callable not found or import error)
+*** no app loaded. GAME OVER ***
+2020-11-27 18:20:47,945 INFO exited: uwsgi (exit status 22; not expected)
+2020-11-27 18:20:48,948 INFO spawned: 'uwsgi' with pid 33
+[uWSGI] getting INI configuration from /app/uwsgi.ini
+[uWSGI] getting INI configuration from /etc/uwsgi/uwsgi.ini
+
+;uWSGI instance configuration
+[uwsgi]
+cheaper = 2
+processes = 16
+ini = /app/uwsgi.ini
+module = main
+callable = app
+ini = /etc/uwsgi/uwsgi.ini
+socket = /tmp/uwsgi.sock
+chown-socket = nginx:nginx
+chmod-socket = 664
+hook-master-start = unix_signal:15 gracefully_kill_them_all
+need-app = true
+die-on-term = true
+show-config = true
+;end of configuration
+
+*** Starting uWSGI 2.0.18 (64bit) on [Fri Nov 27 18:20:49 2020] ***
+compiled with version: 6.3.0 20170516 on 09 August 2019 03:04:38
+os: Linux-5.4.39-linuxkit #1 SMP Fri May 8 23:03:06 UTC 2020
+nodename: demoapp-669ddb9d44-2vm82
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /app
+detected binary path: /usr/local/bin/uwsgi
+your memory page size is 4096 bytes
+detected max file descriptor number: 1048576
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /tmp/uwsgi.sock fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) ***
+Python version: 3.6.9 (default, Jul 13 2019, 15:04:38)  [GCC 6.3.0 20170516]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x5620d8cff570
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) ***
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 1239640 bytes (1210 KB) for 16 cores
+*** Operational MODE: preforking ***
+2020-11-27 18:20:50,252 INFO success: uwsgi entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+Traceback (most recent call last):
+  File "./main.py", line 29, in <module>
+    redis_server = os.environ['REDIS']
+  File "/usr/local/lib/python3.6/os.py", line 669, in __getitem__
+    raise KeyError(key) from None
+KeyError: 'REDIS'
+unable to load app 0 (mountpoint='') (callable not found or import error)
+*** no app loaded. GAME OVER ***
+2020-11-27 18:20:51,346 INFO exited: uwsgi (exit status 22; not expected)
+2020-11-27 18:20:52,349 INFO spawned: 'uwsgi' with pid 35
+[uWSGI] getting INI configuration from /app/uwsgi.ini
+[uWSGI] getting INI configuration from /etc/uwsgi/uwsgi.ini
+
+;uWSGI instance configuration
+[uwsgi]
+cheaper = 2
+processes = 16
+ini = /app/uwsgi.ini
+module = main
+callable = app
+ini = /etc/uwsgi/uwsgi.ini
+socket = /tmp/uwsgi.sock
+chown-socket = nginx:nginx
+chmod-socket = 664
+hook-master-start = unix_signal:15 gracefully_kill_them_all
+need-app = true
+die-on-term = true
+show-config = true
+;end of configuration
+
+*** Starting uWSGI 2.0.18 (64bit) on [Fri Nov 27 18:20:52 2020] ***
+compiled with version: 6.3.0 20170516 on 09 August 2019 03:04:38
+os: Linux-5.4.39-linuxkit #1 SMP Fri May 8 23:03:06 UTC 2020
+nodename: demoapp-669ddb9d44-2vm82
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /app
+detected binary path: /usr/local/bin/uwsgi
+your memory page size is 4096 bytes
+detected max file descriptor number: 1048576
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /tmp/uwsgi.sock fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) ***
+Python version: 3.6.9 (default, Jul 13 2019, 15:04:38)  [GCC 6.3.0 20170516]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x55d7f9df5570
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) ***
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 1239640 bytes (1210 KB) for 16 cores
+*** Operational MODE: preforking ***
+2020-11-27 18:20:53,648 INFO success: uwsgi entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+Traceback (most recent call last):
+  File "./main.py", line 29, in <module>
+    redis_server = os.environ['REDIS']
+  File "/usr/local/lib/python3.6/os.py", line 669, in __getitem__
+    raise KeyError(key) from None
+KeyError: 'REDIS'
+unable to load app 0 (mountpoint='') (callable not found or import error)
+*** no app loaded. GAME OVER ***
+2020-11-27 18:20:54,947 INFO exited: uwsgi (exit status 22; not expected)
+2020-11-27 18:20:55,947 INFO spawned: 'uwsgi' with pid 37
+[uWSGI] getting INI configuration from /app/uwsgi.ini
+[uWSGI] getting INI configuration from /etc/uwsgi/uwsgi.ini
+
+;uWSGI instance configuration
+[uwsgi]
+cheaper = 2
+processes = 16
+ini = /app/uwsgi.ini
+module = main
+callable = app
+ini = /etc/uwsgi/uwsgi.ini
+socket = /tmp/uwsgi.sock
+chown-socket = nginx:nginx
+chmod-socket = 664
+hook-master-start = unix_signal:15 gracefully_kill_them_all
+need-app = true
+die-on-term = true
+show-config = true
+;end of configuration
+
+*** Starting uWSGI 2.0.18 (64bit) on [Fri Nov 27 18:20:55 2020] ***
+compiled with version: 6.3.0 20170516 on 09 August 2019 03:04:38
+os: Linux-5.4.39-linuxkit #1 SMP Fri May 8 23:03:06 UTC 2020
+nodename: demoapp-669ddb9d44-2vm82
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /app
+detected binary path: /usr/local/bin/uwsgi
+your memory page size is 4096 bytes
+detected max file descriptor number: 1048576
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /tmp/uwsgi.sock fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) ***
+Python version: 3.6.9 (default, Jul 13 2019, 15:04:38)  [GCC 6.3.0 20170516]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x55afdfdef570
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) ***
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 1239640 bytes (1210 KB) for 16 cores
+*** Operational MODE: preforking ***
+2020-11-27 18:20:57,243 INFO success: uwsgi entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+Traceback (most recent call last):
+  File "./main.py", line 29, in <module>
+    redis_server = os.environ['REDIS']
+  File "/usr/local/lib/python3.6/os.py", line 669, in __getitem__
+    raise KeyError(key) from None
+KeyError: 'REDIS'
+unable to load app 0 (mountpoint='') (callable not found or import error)
+*** no app loaded. GAME OVER ***
+2020-11-27 18:20:58,844 INFO exited: uwsgi (exit status 22; not expected)
+2020-11-27 18:20:59,847 INFO spawned: 'uwsgi' with pid 39
+[uWSGI] getting INI configuration from /app/uwsgi.ini
+[uWSGI] getting INI configuration from /etc/uwsgi/uwsgi.ini
+
+;uWSGI instance configuration
+[uwsgi]
+cheaper = 2
+processes = 16
+ini = /app/uwsgi.ini
+module = main
+callable = app
+ini = /etc/uwsgi/uwsgi.ini
+socket = /tmp/uwsgi.sock
+chown-socket = nginx:nginx
+chmod-socket = 664
+hook-master-start = unix_signal:15 gracefully_kill_them_all
+need-app = true
+die-on-term = true
+show-config = true
+;end of configuration
+
+*** Starting uWSGI 2.0.18 (64bit) on [Fri Nov 27 18:20:59 2020] ***
+compiled with version: 6.3.0 20170516 on 09 August 2019 03:04:38
+os: Linux-5.4.39-linuxkit #1 SMP Fri May 8 23:03:06 UTC 2020
+nodename: demoapp-669ddb9d44-2vm82
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /app
+detected binary path: /usr/local/bin/uwsgi
+your memory page size is 4096 bytes
+detected max file descriptor number: 1048576
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /tmp/uwsgi.sock fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) ***
+Python version: 3.6.9 (default, Jul 13 2019, 15:04:38)  [GCC 6.3.0 20170516]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x558a423b6570
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) ***
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 1239640 bytes (1210 KB) for 16 cores
+*** Operational MODE: preforking ***
+2020-11-27 18:21:01,149 INFO success: uwsgi entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+Traceback (most recent call last):
+  File "./main.py", line 29, in <module>
+    redis_server = os.environ['REDIS']
+  File "/usr/local/lib/python3.6/os.py", line 669, in __getitem__
+    raise KeyError(key) from None
+KeyError: 'REDIS'
+unable to load app 0 (mountpoint='') (callable not found or import error)
+*** no app loaded. GAME OVER ***
+2020-11-27 18:21:03,443 INFO exited: uwsgi (exit status 22; not expected)
+2020-11-27 18:21:04,446 INFO spawned: 'uwsgi' with pid 41
+[uWSGI] getting INI configuration from /app/uwsgi.ini
+[uWSGI] getting INI configuration from /etc/uwsgi/uwsgi.ini
+
+;uWSGI instance configuration
+[uwsgi]
+cheaper = 2
+processes = 16
+ini = /app/uwsgi.ini
+module = main
+callable = app
+ini = /etc/uwsgi/uwsgi.ini
+socket = /tmp/uwsgi.sock
+chown-socket = nginx:nginx
+chmod-socket = 664
+hook-master-start = unix_signal:15 gracefully_kill_them_all
+need-app = true
+die-on-term = true
+show-config = true
+;end of configuration
+
+*** Starting uWSGI 2.0.18 (64bit) on [Fri Nov 27 18:21:04 2020] ***
+compiled with version: 6.3.0 20170516 on 09 August 2019 03:04:38
+os: Linux-5.4.39-linuxkit #1 SMP Fri May 8 23:03:06 UTC 2020
+nodename: demoapp-669ddb9d44-2vm82
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /app
+detected binary path: /usr/local/bin/uwsgi
+your memory page size is 4096 bytes
+detected max file descriptor number: 1048576
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /tmp/uwsgi.sock fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) ***
+Python version: 3.6.9 (default, Jul 13 2019, 15:04:38)  [GCC 6.3.0 20170516]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x564027c47570
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) ***
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 1239640 bytes (1210 KB) for 16 cores
+*** Operational MODE: preforking ***
+2020-11-27 18:21:05,648 INFO success: uwsgi entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+Traceback (most recent call last):
+  File "./main.py", line 29, in <module>
+    redis_server = os.environ['REDIS']
+  File "/usr/local/lib/python3.6/os.py", line 669, in __getitem__
+    raise KeyError(key) from None
+KeyError: 'REDIS'
+unable to load app 0 (mountpoint='') (callable not found or import error)
+*** no app loaded. GAME OVER ***
+2020-11-27 18:21:07,849 INFO exited: uwsgi (exit status 22; not expected)
+2020-11-27 18:21:08,852 INFO spawned: 'uwsgi' with pid 43
+[uWSGI] getting INI configuration from /app/uwsgi.ini
+[uWSGI] getting INI configuration from /etc/uwsgi/uwsgi.ini
+
+;uWSGI instance configuration
+[uwsgi]
+cheaper = 2
+processes = 16
+ini = /app/uwsgi.ini
+module = main
+callable = app
+ini = /etc/uwsgi/uwsgi.ini
+socket = /tmp/uwsgi.sock
+chown-socket = nginx:nginx
+chmod-socket = 664
+hook-master-start = unix_signal:15 gracefully_kill_them_all
+need-app = true
+die-on-term = true
+show-config = true
+;end of configuration
+
+*** Starting uWSGI 2.0.18 (64bit) on [Fri Nov 27 18:21:08 2020] ***
+compiled with version: 6.3.0 20170516 on 09 August 2019 03:04:38
+os: Linux-5.4.39-linuxkit #1 SMP Fri May 8 23:03:06 UTC 2020
+nodename: demoapp-669ddb9d44-2vm82
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /app
+detected binary path: /usr/local/bin/uwsgi
+your memory page size is 4096 bytes
+detected max file descriptor number: 1048576
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /tmp/uwsgi.sock fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) ***
+Python version: 3.6.9 (default, Jul 13 2019, 15:04:38)  [GCC 6.3.0 20170516]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x561016c9d570
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) ***
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 1239640 bytes (1210 KB) for 16 cores
+*** Operational MODE: preforking ***
+2020-11-27 18:21:10,650 INFO success: uwsgi entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+Traceback (most recent call last):
+  File "./main.py", line 29, in <module>
+    redis_server = os.environ['REDIS']
+  File "/usr/local/lib/python3.6/os.py", line 669, in __getitem__
+    raise KeyError(key) from None
+KeyError: 'REDIS'
+unable to load app 0 (mountpoint='') (callable not found or import error)
+*** no app loaded. GAME OVER ***
+2020-11-27 18:21:12,343 INFO exited: uwsgi (exit status 22; not expected)
+2020-11-27 18:21:13,346 INFO spawned: 'uwsgi' with pid 45
+[uWSGI] getting INI configuration from /app/uwsgi.ini
+[uWSGI] getting INI configuration from /etc/uwsgi/uwsgi.ini
+
+;uWSGI instance configuration
+[uwsgi]
+cheaper = 2
+processes = 16
+ini = /app/uwsgi.ini
+module = main
+callable = app
+ini = /etc/uwsgi/uwsgi.ini
+socket = /tmp/uwsgi.sock
+chown-socket = nginx:nginx
+chmod-socket = 664
+hook-master-start = unix_signal:15 gracefully_kill_them_all
+need-app = true
+die-on-term = true
+show-config = true
+;end of configuration
+
+*** Starting uWSGI 2.0.18 (64bit) on [Fri Nov 27 18:21:13 2020] ***
+compiled with version: 6.3.0 20170516 on 09 August 2019 03:04:38
+os: Linux-5.4.39-linuxkit #1 SMP Fri May 8 23:03:06 UTC 2020
+nodename: demoapp-669ddb9d44-2vm82
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /app
+detected binary path: /usr/local/bin/uwsgi
+your memory page size is 4096 bytes
+detected max file descriptor number: 1048576
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /tmp/uwsgi.sock fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) ***
+Python version: 3.6.9 (default, Jul 13 2019, 15:04:38)  [GCC 6.3.0 20170516]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x5625ffb19570
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) ***
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 1239640 bytes (1210 KB) for 16 cores
+*** Operational MODE: preforking ***
+2020-11-27 18:21:14,649 INFO success: uwsgi entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+Traceback (most recent call last):
+  File "./main.py", line 29, in <module>
+    redis_server = os.environ['REDIS']
+  File "/usr/local/lib/python3.6/os.py", line 669, in __getitem__
+    raise KeyError(key) from None
+KeyError: 'REDIS'
+unable to load app 0 (mountpoint='') (callable not found or import error)
+*** no app loaded. GAME OVER ***
+2020-11-27 18:21:16,544 INFO exited: uwsgi (exit status 22; not expected)
+2020-11-27 18:21:17,547 INFO spawned: 'uwsgi' with pid 47
+[uWSGI] getting INI configuration from /app/uwsgi.ini
+[uWSGI] getting INI configuration from /etc/uwsgi/uwsgi.ini
+
+;uWSGI instance configuration
+[uwsgi]
+cheaper = 2
+processes = 16
+ini = /app/uwsgi.ini
+module = main
+callable = app
+ini = /etc/uwsgi/uwsgi.ini
+socket = /tmp/uwsgi.sock
+chown-socket = nginx:nginx
+chmod-socket = 664
+hook-master-start = unix_signal:15 gracefully_kill_them_all
+need-app = true
+die-on-term = true
+show-config = true
+;end of configuration
+
+*** Starting uWSGI 2.0.18 (64bit) on [Fri Nov 27 18:21:17 2020] ***
+compiled with version: 6.3.0 20170516 on 09 August 2019 03:04:38
+os: Linux-5.4.39-linuxkit #1 SMP Fri May 8 23:03:06 UTC 2020
+nodename: demoapp-669ddb9d44-2vm82
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /app
+detected binary path: /usr/local/bin/uwsgi
+your memory page size is 4096 bytes
+detected max file descriptor number: 1048576
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /tmp/uwsgi.sock fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) ***
+Python version: 3.6.9 (default, Jul 13 2019, 15:04:38)  [GCC 6.3.0 20170516]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x55dbb9205570
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) ***
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 1239640 bytes (1210 KB) for 16 cores
+*** Operational MODE: preforking ***
+2020-11-27 18:21:18,850 INFO success: uwsgi entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+Traceback (most recent call last):
+  File "./main.py", line 29, in <module>
+    redis_server = os.environ['REDIS']
+  File "/usr/local/lib/python3.6/os.py", line 669, in __getitem__
+    raise KeyError(key) from None
+KeyError: 'REDIS'
+unable to load app 0 (mountpoint='') (callable not found or import error)
+*** no app loaded. GAME OVER ***
+2020-11-27 18:21:20,444 INFO exited: uwsgi (exit status 22; not expected)
+2020-11-27 18:21:21,447 INFO spawned: 'uwsgi' with pid 49
+[uWSGI] getting INI configuration from /app/uwsgi.ini
+[uWSGI] getting INI configuration from /etc/uwsgi/uwsgi.ini
+
+;uWSGI instance configuration
+[uwsgi]
+cheaper = 2
+processes = 16
+ini = /app/uwsgi.ini
+module = main
+callable = app
+ini = /etc/uwsgi/uwsgi.ini
+socket = /tmp/uwsgi.sock
+chown-socket = nginx:nginx
+chmod-socket = 664
+hook-master-start = unix_signal:15 gracefully_kill_them_all
+need-app = true
+die-on-term = true
+show-config = true
+;end of configuration
+
+*** Starting uWSGI 2.0.18 (64bit) on [Fri Nov 27 18:21:21 2020] ***
+compiled with version: 6.3.0 20170516 on 09 August 2019 03:04:38
+os: Linux-5.4.39-linuxkit #1 SMP Fri May 8 23:03:06 UTC 2020
+nodename: demoapp-669ddb9d44-2vm82
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /app
+detected binary path: /usr/local/bin/uwsgi
+your memory page size is 4096 bytes
+detected max file descriptor number: 1048576
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /tmp/uwsgi.sock fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) ***
+Python version: 3.6.9 (default, Jul 13 2019, 15:04:38)  [GCC 6.3.0 20170516]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x558825359570
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) ***
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 1239640 bytes (1210 KB) for 16 cores
+*** Operational MODE: preforking ***
+2020-11-27 18:21:22,843 INFO success: uwsgi entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+Traceback (most recent call last):
+  File "./main.py", line 29, in <module>
+    redis_server = os.environ['REDIS']
+  File "/usr/local/lib/python3.6/os.py", line 669, in __getitem__
+    raise KeyError(key) from None
+KeyError: 'REDIS'
+unable to load app 0 (mountpoint='') (callable not found or import error)
+*** no app loaded. GAME OVER ***
+2020-11-27 18:21:24,643 INFO exited: uwsgi (exit status 22; not expected)
+2020-11-27 18:21:25,653 INFO spawned: 'uwsgi' with pid 51
+[uWSGI] getting INI configuration from /app/uwsgi.ini
+[uWSGI] getting INI configuration from /etc/uwsgi/uwsgi.ini
+
+;uWSGI instance configuration
+[uwsgi]
+cheaper = 2
+processes = 16
+ini = /app/uwsgi.ini
+module = main
+callable = app
+ini = /etc/uwsgi/uwsgi.ini
+socket = /tmp/uwsgi.sock
+chown-socket = nginx:nginx
+chmod-socket = 664
+hook-master-start = unix_signal:15 gracefully_kill_them_all
+need-app = true
+die-on-term = true
+show-config = true
+;end of configuration
+
+*** Starting uWSGI 2.0.18 (64bit) on [Fri Nov 27 18:21:25 2020] ***
+compiled with version: 6.3.0 20170516 on 09 August 2019 03:04:38
+os: Linux-5.4.39-linuxkit #1 SMP Fri May 8 23:03:06 UTC 2020
+nodename: demoapp-669ddb9d44-2vm82
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /app
+detected binary path: /usr/local/bin/uwsgi
+your memory page size is 4096 bytes
+detected max file descriptor number: 1048576
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /tmp/uwsgi.sock fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) ***
+Python version: 3.6.9 (default, Jul 13 2019, 15:04:38)  [GCC 6.3.0 20170516]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x55e91f888570
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) ***
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 1239640 bytes (1210 KB) for 16 cores
+*** Operational MODE: preforking ***
+2020-11-27 18:21:26,952 INFO success: uwsgi entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+Traceback (most recent call last):
+  File "./main.py", line 29, in <module>
+    redis_server = os.environ['REDIS']
+  File "/usr/local/lib/python3.6/os.py", line 669, in __getitem__
+    raise KeyError(key) from None
+KeyError: 'REDIS'
+unable to load app 0 (mountpoint='') (callable not found or import error)
+*** no app loaded. GAME OVER ***
+2020-11-27 18:21:29,249 INFO exited: uwsgi (exit status 22; not expected)
+2020-11-27 18:21:30,252 INFO spawned: 'uwsgi' with pid 53
+[uWSGI] getting INI configuration from /app/uwsgi.ini
+[uWSGI] getting INI configuration from /etc/uwsgi/uwsgi.ini
+
+;uWSGI instance configuration
+[uwsgi]
+cheaper = 2
+processes = 16
+ini = /app/uwsgi.ini
+module = main
+callable = app
+ini = /etc/uwsgi/uwsgi.ini
+socket = /tmp/uwsgi.sock
+chown-socket = nginx:nginx
+chmod-socket = 664
+hook-master-start = unix_signal:15 gracefully_kill_them_all
+need-app = true
+die-on-term = true
+show-config = true
+;end of configuration
+
+*** Starting uWSGI 2.0.18 (64bit) on [Fri Nov 27 18:21:30 2020] ***
+compiled with version: 6.3.0 20170516 on 09 August 2019 03:04:38
+os: Linux-5.4.39-linuxkit #1 SMP Fri May 8 23:03:06 UTC 2020
+nodename: demoapp-669ddb9d44-2vm82
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /app
+detected binary path: /usr/local/bin/uwsgi
+your memory page size is 4096 bytes
+detected max file descriptor number: 1048576
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /tmp/uwsgi.sock fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) ***
+Python version: 3.6.9 (default, Jul 13 2019, 15:04:38)  [GCC 6.3.0 20170516]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x562122108570
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) ***
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 1239640 bytes (1210 KB) for 16 cores
+*** Operational MODE: preforking ***
+2020-11-27 18:21:31,550 INFO success: uwsgi entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+Traceback (most recent call last):
+  File "./main.py", line 29, in <module>
+    redis_server = os.environ['REDIS']
+  File "/usr/local/lib/python3.6/os.py", line 669, in __getitem__
+    raise KeyError(key) from None
+KeyError: 'REDIS'
+unable to load app 0 (mountpoint='') (callable not found or import error)
+*** no app loaded. GAME OVER ***
+2020-11-27 18:21:33,348 INFO exited: uwsgi (exit status 22; not expected)
+2020-11-27 18:21:34,351 INFO spawned: 'uwsgi' with pid 55
+[uWSGI] getting INI configuration from /app/uwsgi.ini
+[uWSGI] getting INI configuration from /etc/uwsgi/uwsgi.ini
+
+;uWSGI instance configuration
+[uwsgi]
+cheaper = 2
+processes = 16
+ini = /app/uwsgi.ini
+module = main
+callable = app
+ini = /etc/uwsgi/uwsgi.ini
+socket = /tmp/uwsgi.sock
+chown-socket = nginx:nginx
+chmod-socket = 664
+hook-master-start = unix_signal:15 gracefully_kill_them_all
+need-app = true
+die-on-term = true
+show-config = true
+;end of configuration
+
+*** Starting uWSGI 2.0.18 (64bit) on [Fri Nov 27 18:21:34 2020] ***
+compiled with version: 6.3.0 20170516 on 09 August 2019 03:04:38
+os: Linux-5.4.39-linuxkit #1 SMP Fri May 8 23:03:06 UTC 2020
+nodename: demoapp-669ddb9d44-2vm82
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /app
+detected binary path: /usr/local/bin/uwsgi
+your memory page size is 4096 bytes
+detected max file descriptor number: 1048576
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /tmp/uwsgi.sock fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) ***
+Python version: 3.6.9 (default, Jul 13 2019, 15:04:38)  [GCC 6.3.0 20170516]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x56059efcb570
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) ***
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 1239640 bytes (1210 KB) for 16 cores
+*** Operational MODE: preforking ***
+2020-11-27 18:21:35,556 INFO success: uwsgi entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+Traceback (most recent call last):
+  File "./main.py", line 29, in <module>
+    redis_server = os.environ['REDIS']
+  File "/usr/local/lib/python3.6/os.py", line 669, in __getitem__
+    raise KeyError(key) from None
+KeyError: 'REDIS'
+unable to load app 0 (mountpoint='') (callable not found or import error)
+*** no app loaded. GAME OVER ***
+2020-11-27 18:21:37,149 INFO exited: uwsgi (exit status 22; not expected)
+2020-11-27 18:21:38,151 INFO spawned: 'uwsgi' with pid 57
+[uWSGI] getting INI configuration from /app/uwsgi.ini
+[uWSGI] getting INI configuration from /etc/uwsgi/uwsgi.ini
+
+;uWSGI instance configuration
+[uwsgi]
+cheaper = 2
+processes = 16
+ini = /app/uwsgi.ini
+module = main
+callable = app
+ini = /etc/uwsgi/uwsgi.ini
+socket = /tmp/uwsgi.sock
+chown-socket = nginx:nginx
+chmod-socket = 664
+hook-master-start = unix_signal:15 gracefully_kill_them_all
+need-app = true
+die-on-term = true
+show-config = true
+;end of configuration
+
+*** Starting uWSGI 2.0.18 (64bit) on [Fri Nov 27 18:21:38 2020] ***
+compiled with version: 6.3.0 20170516 on 09 August 2019 03:04:38
+os: Linux-5.4.39-linuxkit #1 SMP Fri May 8 23:03:06 UTC 2020
+nodename: demoapp-669ddb9d44-2vm82
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /app
+detected binary path: /usr/local/bin/uwsgi
+your memory page size is 4096 bytes
+detected max file descriptor number: 1048576
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /tmp/uwsgi.sock fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) ***
+Python version: 3.6.9 (default, Jul 13 2019, 15:04:38)  [GCC 6.3.0 20170516]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x55d5ffae8570
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) ***
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 1239640 bytes (1210 KB) for 16 cores
+*** Operational MODE: preforking ***
+2020-11-27 18:21:39,754 INFO success: uwsgi entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+Traceback (most recent call last):
+  File "./main.py", line 29, in <module>
+    redis_server = os.environ['REDIS']
+  File "/usr/local/lib/python3.6/os.py", line 669, in __getitem__
+    raise KeyError(key) from None
+KeyError: 'REDIS'
+unable to load app 0 (mountpoint='') (callable not found or import error)
+*** no app loaded. GAME OVER ***
+2020-11-27 18:21:41,650 INFO exited: uwsgi (exit status 22; not expected)
+2020-11-27 18:21:42,652 INFO spawned: 'uwsgi' with pid 59
+[uWSGI] getting INI configuration from /app/uwsgi.ini
+[uWSGI] getting INI configuration from /etc/uwsgi/uwsgi.ini
+
+;uWSGI instance configuration
+[uwsgi]
+cheaper = 2
+processes = 16
+ini = /app/uwsgi.ini
+module = main
+callable = app
+ini = /etc/uwsgi/uwsgi.ini
+socket = /tmp/uwsgi.sock
+chown-socket = nginx:nginx
+chmod-socket = 664
+hook-master-start = unix_signal:15 gracefully_kill_them_all
+need-app = true
+die-on-term = true
+show-config = true
+;end of configuration
+
+*** Starting uWSGI 2.0.18 (64bit) on [Fri Nov 27 18:21:42 2020] ***
+compiled with version: 6.3.0 20170516 on 09 August 2019 03:04:38
+os: Linux-5.4.39-linuxkit #1 SMP Fri May 8 23:03:06 UTC 2020
+nodename: demoapp-669ddb9d44-2vm82
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /app
+detected binary path: /usr/local/bin/uwsgi
+your memory page size is 4096 bytes
+detected max file descriptor number: 1048576
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /tmp/uwsgi.sock fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) ***
+Python version: 3.6.9 (default, Jul 13 2019, 15:04:38)  [GCC 6.3.0 20170516]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x555f2a1de570
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) ***
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 1239640 bytes (1210 KB) for 16 cores
+*** Operational MODE: preforking ***
+2020-11-27 18:21:43,952 INFO success: uwsgi entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+Traceback (most recent call last):
+  File "./main.py", line 29, in <module>
+    redis_server = os.environ['REDIS']
+  File "/usr/local/lib/python3.6/os.py", line 669, in __getitem__
+    raise KeyError(key) from None
+KeyError: 'REDIS'
+unable to load app 0 (mountpoint='') (callable not found or import error)
+*** no app loaded. GAME OVER ***
+2020-11-27 18:21:45,648 INFO exited: uwsgi (exit status 22; not expected)
+2020-11-27 18:21:46,651 INFO spawned: 'uwsgi' with pid 61
+[uWSGI] getting INI configuration from /app/uwsgi.ini
+[uWSGI] getting INI configuration from /etc/uwsgi/uwsgi.ini
+
+;uWSGI instance configuration
+[uwsgi]
+cheaper = 2
+processes = 16
+ini = /app/uwsgi.ini
+module = main
+callable = app
+ini = /etc/uwsgi/uwsgi.ini
+socket = /tmp/uwsgi.sock
+chown-socket = nginx:nginx
+chmod-socket = 664
+hook-master-start = unix_signal:15 gracefully_kill_them_all
+need-app = true
+die-on-term = true
+show-config = true
+;end of configuration
+
+*** Starting uWSGI 2.0.18 (64bit) on [Fri Nov 27 18:21:46 2020] ***
+compiled with version: 6.3.0 20170516 on 09 August 2019 03:04:38
+os: Linux-5.4.39-linuxkit #1 SMP Fri May 8 23:03:06 UTC 2020
+nodename: demoapp-669ddb9d44-2vm82
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /app
+detected binary path: /usr/local/bin/uwsgi
+your memory page size is 4096 bytes
+detected max file descriptor number: 1048576
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /tmp/uwsgi.sock fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) ***
+Python version: 3.6.9 (default, Jul 13 2019, 15:04:38)  [GCC 6.3.0 20170516]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x557e20fbe570
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) ***
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 1239640 bytes (1210 KB) for 16 cores
+*** Operational MODE: preforking ***
+2020-11-27 18:21:48,053 INFO success: uwsgi entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+Traceback (most recent call last):
+  File "./main.py", line 29, in <module>
+    redis_server = os.environ['REDIS']
+  File "/usr/local/lib/python3.6/os.py", line 669, in __getitem__
+    raise KeyError(key) from None
+KeyError: 'REDIS'
+unable to load app 0 (mountpoint='') (callable not found or import error)
+*** no app loaded. GAME OVER ***
+2020-11-27 18:21:49,950 INFO exited: uwsgi (exit status 22; not expected)
+2020-11-27 18:21:50,952 INFO spawned: 'uwsgi' with pid 63
+[uWSGI] getting INI configuration from /app/uwsgi.ini
+[uWSGI] getting INI configuration from /etc/uwsgi/uwsgi.ini
+
+;uWSGI instance configuration
+[uwsgi]
+cheaper = 2
+processes = 16
+ini = /app/uwsgi.ini
+module = main
+callable = app
+ini = /etc/uwsgi/uwsgi.ini
+socket = /tmp/uwsgi.sock
+chown-socket = nginx:nginx
+chmod-socket = 664
+hook-master-start = unix_signal:15 gracefully_kill_them_all
+need-app = true
+die-on-term = true
+show-config = true
+;end of configuration
+
+*** Starting uWSGI 2.0.18 (64bit) on [Fri Nov 27 18:21:50 2020] ***
+compiled with version: 6.3.0 20170516 on 09 August 2019 03:04:38
+os: Linux-5.4.39-linuxkit #1 SMP Fri May 8 23:03:06 UTC 2020
+nodename: demoapp-669ddb9d44-2vm82
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /app
+detected binary path: /usr/local/bin/uwsgi
+your memory page size is 4096 bytes
+detected max file descriptor number: 1048576
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /tmp/uwsgi.sock fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) ***
+Python version: 3.6.9 (default, Jul 13 2019, 15:04:38)  [GCC 6.3.0 20170516]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x55a518815570
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) ***
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 1239640 bytes (1210 KB) for 16 cores
+*** Operational MODE: preforking ***
+2020-11-27 18:21:52,249 INFO success: uwsgi entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+Traceback (most recent call last):
+  File "./main.py", line 29, in <module>
+    redis_server = os.environ['REDIS']
+  File "/usr/local/lib/python3.6/os.py", line 669, in __getitem__
+    raise KeyError(key) from None
+KeyError: 'REDIS'
+unable to load app 0 (mountpoint='') (callable not found or import error)
+*** no app loaded. GAME OVER ***
+2020-11-27 18:21:53,757 INFO exited: uwsgi (exit status 22; not expected)
+2020-11-27 18:21:54,850 INFO spawned: 'uwsgi' with pid 65
+[uWSGI] getting INI configuration from /app/uwsgi.ini
+[uWSGI] getting INI configuration from /etc/uwsgi/uwsgi.ini
+
+;uWSGI instance configuration
+[uwsgi]
+cheaper = 2
+processes = 16
+ini = /app/uwsgi.ini
+module = main
+callable = app
+ini = /etc/uwsgi/uwsgi.ini
+socket = /tmp/uwsgi.sock
+chown-socket = nginx:nginx
+chmod-socket = 664
+hook-master-start = unix_signal:15 gracefully_kill_them_all
+need-app = true
+die-on-term = true
+show-config = true
+;end of configuration
+
+*** Starting uWSGI 2.0.18 (64bit) on [Fri Nov 27 18:21:54 2020] ***
+compiled with version: 6.3.0 20170516 on 09 August 2019 03:04:38
+os: Linux-5.4.39-linuxkit #1 SMP Fri May 8 23:03:06 UTC 2020
+nodename: demoapp-669ddb9d44-2vm82
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /app
+detected binary path: /usr/local/bin/uwsgi
+your memory page size is 4096 bytes
+detected max file descriptor number: 1048576
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /tmp/uwsgi.sock fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) ***
+Python version: 3.6.9 (default, Jul 13 2019, 15:04:38)  [GCC 6.3.0 20170516]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x557542fbd570
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) ***
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 1239640 bytes (1210 KB) for 16 cores
+*** Operational MODE: preforking ***
+2020-11-27 18:21:56,253 INFO success: uwsgi entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+Traceback (most recent call last):
+  File "./main.py", line 29, in <module>
+    redis_server = os.environ['REDIS']
+  File "/usr/local/lib/python3.6/os.py", line 669, in __getitem__
+    raise KeyError(key) from None
+KeyError: 'REDIS'
+unable to load app 0 (mountpoint='') (callable not found or import error)
+*** no app loaded. GAME OVER ***
+2020-11-27 18:21:57,649 INFO exited: uwsgi (exit status 22; not expected)
+2020-11-27 18:21:58,651 INFO spawned: 'uwsgi' with pid 67
+[uWSGI] getting INI configuration from /app/uwsgi.ini
+[uWSGI] getting INI configuration from /etc/uwsgi/uwsgi.ini
+
+;uWSGI instance configuration
+[uwsgi]
+cheaper = 2
+processes = 16
+ini = /app/uwsgi.ini
+module = main
+callable = app
+ini = /etc/uwsgi/uwsgi.ini
+socket = /tmp/uwsgi.sock
+chown-socket = nginx:nginx
+chmod-socket = 664
+hook-master-start = unix_signal:15 gracefully_kill_them_all
+need-app = true
+die-on-term = true
+show-config = true
+;end of configuration
+
+*** Starting uWSGI 2.0.18 (64bit) on [Fri Nov 27 18:21:58 2020] ***
+compiled with version: 6.3.0 20170516 on 09 August 2019 03:04:38
+os: Linux-5.4.39-linuxkit #1 SMP Fri May 8 23:03:06 UTC 2020
+nodename: demoapp-669ddb9d44-2vm82
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /app
+detected binary path: /usr/local/bin/uwsgi
+your memory page size is 4096 bytes
+detected max file descriptor number: 1048576
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /tmp/uwsgi.sock fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) ***
+Python version: 3.6.9 (default, Jul 13 2019, 15:04:38)  [GCC 6.3.0 20170516]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x560011847570
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) ***
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 1239640 bytes (1210 KB) for 16 cores
+*** Operational MODE: preforking ***
+2020-11-27 18:21:59,851 INFO success: uwsgi entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+Traceback (most recent call last):
+  File "./main.py", line 29, in <module>
+    redis_server = os.environ['REDIS']
+  File "/usr/local/lib/python3.6/os.py", line 669, in __getitem__
+    raise KeyError(key) from None
+KeyError: 'REDIS'
+unable to load app 0 (mountpoint='') (callable not found or import error)
+*** no app loaded. GAME OVER ***
+2020-11-27 18:22:00,956 INFO exited: uwsgi (exit status 22; not expected)
+2020-11-27 18:22:01,957 INFO spawned: 'uwsgi' with pid 69
+[uWSGI] getting INI configuration from /app/uwsgi.ini
+[uWSGI] getting INI configuration from /etc/uwsgi/uwsgi.ini
+
+;uWSGI instance configuration
+[uwsgi]
+cheaper = 2
+processes = 16
+ini = /app/uwsgi.ini
+module = main
+callable = app
+ini = /etc/uwsgi/uwsgi.ini
+socket = /tmp/uwsgi.sock
+chown-socket = nginx:nginx
+chmod-socket = 664
+hook-master-start = unix_signal:15 gracefully_kill_them_all
+need-app = true
+die-on-term = true
+show-config = true
+;end of configuration
+
+*** Starting uWSGI 2.0.18 (64bit) on [Fri Nov 27 18:22:01 2020] ***
+compiled with version: 6.3.0 20170516 on 09 August 2019 03:04:38
+os: Linux-5.4.39-linuxkit #1 SMP Fri May 8 23:03:06 UTC 2020
+nodename: demoapp-669ddb9d44-2vm82
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /app
+detected binary path: /usr/local/bin/uwsgi
+your memory page size is 4096 bytes
+detected max file descriptor number: 1048576
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /tmp/uwsgi.sock fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) ***
+Python version: 3.6.9 (default, Jul 13 2019, 15:04:38)  [GCC 6.3.0 20170516]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x5580fa9a2570
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) ***
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 1239640 bytes (1210 KB) for 16 cores
+*** Operational MODE: preforking ***
+2020-11-27 18:22:03,249 INFO success: uwsgi entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+Traceback (most recent call last):
+  File "./main.py", line 29, in <module>
+    redis_server = os.environ['REDIS']
+  File "/usr/local/lib/python3.6/os.py", line 669, in __getitem__
+    raise KeyError(key) from None
+KeyError: 'REDIS'
+unable to load app 0 (mountpoint='') (callable not found or import error)
+*** no app loaded. GAME OVER ***
+2020-11-27 18:22:04,454 INFO exited: uwsgi (exit status 22; not expected)
+2020-11-27 18:22:05,459 INFO spawned: 'uwsgi' with pid 71
+[uWSGI] getting INI configuration from /app/uwsgi.ini
+[uWSGI] getting INI configuration from /etc/uwsgi/uwsgi.ini
+
+;uWSGI instance configuration
+[uwsgi]
+cheaper = 2
+processes = 16
+ini = /app/uwsgi.ini
+module = main
+callable = app
+ini = /etc/uwsgi/uwsgi.ini
+socket = /tmp/uwsgi.sock
+chown-socket = nginx:nginx
+chmod-socket = 664
+hook-master-start = unix_signal:15 gracefully_kill_them_all
+need-app = true
+die-on-term = true
+show-config = true
+;end of configuration
+
+*** Starting uWSGI 2.0.18 (64bit) on [Fri Nov 27 18:22:05 2020] ***
+compiled with version: 6.3.0 20170516 on 09 August 2019 03:04:38
+os: Linux-5.4.39-linuxkit #1 SMP Fri May 8 23:03:06 UTC 2020
+nodename: demoapp-669ddb9d44-2vm82
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /app
+detected binary path: /usr/local/bin/uwsgi
+your memory page size is 4096 bytes
+detected max file descriptor number: 1048576
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /tmp/uwsgi.sock fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) ***
+Python version: 3.6.9 (default, Jul 13 2019, 15:04:38)  [GCC 6.3.0 20170516]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x55752b561570
+uWSGI running as root, you can use --uid/--gid/--chroot options
+
+D:\Program Files\kind\docker>kubectl logs -f demoapp-669ddb9d44-2vm82
+Checking for script in /app/prestart.sh
+Running script /app/prestart.sh
+Running inside /app/prestart.sh, you could add migrations to this file, e.g.:
+
+#! /usr/bin/env bash
+
+# Let the DB start
+sleep 10;
+# Run migrations
+alembic upgrade head
+
+/usr/lib/python2.7/dist-packages/supervisor/options.py:298: UserWarning: Supervisord is running as root and it is searching for its configuration file in default locations (including its current working directory); you probably want to specify a "-c" argument specifying an absolute path to a configuration file for improved security.
+  'Supervisord is running as root and it is searching '
+2020-11-27 18:20:09,049 CRIT Supervisor running as root (no user in config file)
+2020-11-27 18:20:09,049 INFO Included extra file "/etc/supervisor/conf.d/supervisord.conf" during parsing
+2020-11-27 18:20:09,150 INFO RPC interface 'supervisor' initialized
+2020-11-27 18:20:09,150 CRIT Server 'unix_http_server' running without any HTTP authentication checking
+2020-11-27 18:20:09,150 INFO supervisord started with pid 1
+2020-11-27 18:20:10,153 INFO spawned: 'nginx' with pid 11
+2020-11-27 18:20:10,155 INFO spawned: 'uwsgi' with pid 12
+[uWSGI] getting INI configuration from /app/uwsgi.ini
+[uWSGI] getting INI configuration from /etc/uwsgi/uwsgi.ini
+
+;uWSGI instance configuration
+[uwsgi]
+cheaper = 2
+processes = 16
+ini = /app/uwsgi.ini
+module = main
+callable = app
+ini = /etc/uwsgi/uwsgi.ini
+socket = /tmp/uwsgi.sock
+chown-socket = nginx:nginx
+chmod-socket = 664
+hook-master-start = unix_signal:15 gracefully_kill_them_all
+need-app = true
+die-on-term = true
+show-config = true
+;end of configuration
+
+*** Starting uWSGI 2.0.18 (64bit) on [Fri Nov 27 18:20:10 2020] ***
+compiled with version: 6.3.0 20170516 on 09 August 2019 03:04:38
+os: Linux-5.4.39-linuxkit #1 SMP Fri May 8 23:03:06 UTC 2020
+nodename: demoapp-669ddb9d44-2vm82
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /app
+detected binary path: /usr/local/bin/uwsgi
+your memory page size is 4096 bytes
+detected max file descriptor number: 1048576
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /tmp/uwsgi.sock fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) ***
+Python version: 3.6.9 (default, Jul 13 2019, 15:04:38)  [GCC 6.3.0 20170516]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x5587dc5f0570
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) ***
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 1239640 bytes (1210 KB) for 16 cores
+*** Operational MODE: preforking ***
+2020-11-27 18:20:12,047 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-11-27 18:20:12,047 INFO success: uwsgi entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+Traceback (most recent call last):
+  File "./main.py", line 29, in <module>
+    redis_server = os.environ['REDIS']
+  File "/usr/local/lib/python3.6/os.py", line 669, in __getitem__
+    raise KeyError(key) from None
+KeyError: 'REDIS'
+unable to load app 0 (mountpoint='') (callable not found or import error)
+*** no app loaded. GAME OVER ***
+2020-11-27 18:20:15,644 INFO exited: uwsgi (exit status 22; not expected)
+2020-11-27 18:20:16,651 INFO spawned: 'uwsgi' with pid 15
+[uWSGI] getting INI configuration from /app/uwsgi.ini
+[uWSGI] getting INI configuration from /etc/uwsgi/uwsgi.ini
+
+;uWSGI instance configuration
+[uwsgi]
+cheaper = 2
+processes = 16
+ini = /app/uwsgi.ini
+module = main
+callable = app
+ini = /etc/uwsgi/uwsgi.ini
+socket = /tmp/uwsgi.sock
+chown-socket = nginx:nginx
+chmod-socket = 664
+hook-master-start = unix_signal:15 gracefully_kill_them_all
+need-app = true
+die-on-term = true
+show-config = true
+;end of configuration
+
+*** Starting uWSGI 2.0.18 (64bit) on [Fri Nov 27 18:20:16 2020] ***
+compiled with version: 6.3.0 20170516 on 09 August 2019 03:04:38
+os: Linux-5.4.39-linuxkit #1 SMP Fri May 8 23:03:06 UTC 2020
+nodename: demoapp-669ddb9d44-2vm82
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /app
+detected binary path: /usr/local/bin/uwsgi
+your memory page size is 4096 bytes
+detected max file descriptor number: 1048576
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /tmp/uwsgi.sock fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) ***
+Python version: 3.6.9 (default, Jul 13 2019, 15:04:38)  [GCC 6.3.0 20170516]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x56061e072570
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) ***
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 1239640 bytes (1210 KB) for 16 cores
+*** Operational MODE: preforking ***
+2020-11-27 18:20:18,043 INFO success: uwsgi entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+Traceback (most recent call last):
+  File "./main.py", line 29, in <module>
+    redis_server = os.environ['REDIS']
+  File "/usr/local/lib/python3.6/os.py", line 669, in __getitem__
+    raise KeyError(key) from None
+KeyError: 'REDIS'
+unable to load app 0 (mountpoint='') (callable not found or import error)
+*** no app loaded. GAME OVER ***
+2020-11-27 18:20:19,641 INFO exited: uwsgi (exit status 22; not expected)
+2020-11-27 18:20:19,643 INFO spawned: 'uwsgi' with pid 17
+[uWSGI] getting INI configuration from /app/uwsgi.ini
+[uWSGI] getting INI configuration from /etc/uwsgi/uwsgi.ini
+
+;uWSGI instance configuration
+[uwsgi]
+cheaper = 2
+processes = 16
+ini = /app/uwsgi.ini
+module = main
+callable = app
+ini = /etc/uwsgi/uwsgi.ini
+socket = /tmp/uwsgi.sock
+chown-socket = nginx:nginx
+chmod-socket = 664
+hook-master-start = unix_signal:15 gracefully_kill_them_all
+need-app = true
+die-on-term = true
+show-config = true
+;end of configuration
+
+*** Starting uWSGI 2.0.18 (64bit) on [Fri Nov 27 18:20:19 2020] ***
+compiled with version: 6.3.0 20170516 on 09 August 2019 03:04:38
+os: Linux-5.4.39-linuxkit #1 SMP Fri May 8 23:03:06 UTC 2020
+nodename: demoapp-669ddb9d44-2vm82
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /app
+detected binary path: /usr/local/bin/uwsgi
+your memory page size is 4096 bytes
+detected max file descriptor number: 1048576
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /tmp/uwsgi.sock fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) ***
+Python version: 3.6.9 (default, Jul 13 2019, 15:04:38)  [GCC 6.3.0 20170516]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x55fa8b7ef570
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) ***
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 1239640 bytes (1210 KB) for 16 cores
+*** Operational MODE: preforking ***
+2020-11-27 18:20:20,946 INFO success: uwsgi entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+Traceback (most recent call last):
+  File "./main.py", line 29, in <module>
+    redis_server = os.environ['REDIS']
+  File "/usr/local/lib/python3.6/os.py", line 669, in __getitem__
+    raise KeyError(key) from None
+KeyError: 'REDIS'
+unable to load app 0 (mountpoint='') (callable not found or import error)
+*** no app loaded. GAME OVER ***
+2020-11-27 18:20:21,841 INFO exited: uwsgi (exit status 22; not expected)
+2020-11-27 18:20:22,843 INFO spawned: 'uwsgi' with pid 19
+[uWSGI] getting INI configuration from /app/uwsgi.ini
+[uWSGI] getting INI configuration from /etc/uwsgi/uwsgi.ini
+
+;uWSGI instance configuration
+[uwsgi]
+cheaper = 2
+processes = 16
+ini = /app/uwsgi.ini
+module = main
+callable = app
+ini = /etc/uwsgi/uwsgi.ini
+socket = /tmp/uwsgi.sock
+chown-socket = nginx:nginx
+chmod-socket = 664
+hook-master-start = unix_signal:15 gracefully_kill_them_all
+need-app = true
+die-on-term = true
+show-config = true
+;end of configuration
+
+*** Starting uWSGI 2.0.18 (64bit) on [Fri Nov 27 18:20:22 2020] ***
+compiled with version: 6.3.0 20170516 on 09 August 2019 03:04:38
+os: Linux-5.4.39-linuxkit #1 SMP Fri May 8 23:03:06 UTC 2020
+nodename: demoapp-669ddb9d44-2vm82
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /app
+detected binary path: /usr/local/bin/uwsgi
+your memory page size is 4096 bytes
+detected max file descriptor number: 1048576
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /tmp/uwsgi.sock fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) ***
+Python version: 3.6.9 (default, Jul 13 2019, 15:04:38)  [GCC 6.3.0 20170516]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x562d0b859570
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) ***
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 1239640 bytes (1210 KB) for 16 cores
+*** Operational MODE: preforking ***
+2020-11-27 18:20:24,046 INFO success: uwsgi entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+Traceback (most recent call last):
+  File "./main.py", line 29, in <module>
+    redis_server = os.environ['REDIS']
+  File "/usr/local/lib/python3.6/os.py", line 669, in __getitem__
+    raise KeyError(key) from None
+KeyError: 'REDIS'
+unable to load app 0 (mountpoint='') (callable not found or import error)
+*** no app loaded. GAME OVER ***
+2020-11-27 18:20:24,845 INFO exited: uwsgi (exit status 22; not expected)
+2020-11-27 18:20:25,850 INFO spawned: 'uwsgi' with pid 21
+[uWSGI] getting INI configuration from /app/uwsgi.ini
+[uWSGI] getting INI configuration from /etc/uwsgi/uwsgi.ini
+
+;uWSGI instance configuration
+[uwsgi]
+cheaper = 2
+processes = 16
+ini = /app/uwsgi.ini
+module = main
+callable = app
+ini = /etc/uwsgi/uwsgi.ini
+socket = /tmp/uwsgi.sock
+chown-socket = nginx:nginx
+chmod-socket = 664
+hook-master-start = unix_signal:15 gracefully_kill_them_all
+need-app = true
+die-on-term = true
+show-config = true
+;end of configuration
+
+*** Starting uWSGI 2.0.18 (64bit) on [Fri Nov 27 18:20:25 2020] ***
+compiled with version: 6.3.0 20170516 on 09 August 2019 03:04:38
+os: Linux-5.4.39-linuxkit #1 SMP Fri May 8 23:03:06 UTC 2020
+nodename: demoapp-669ddb9d44-2vm82
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /app
+detected binary path: /usr/local/bin/uwsgi
+your memory page size is 4096 bytes
+detected max file descriptor number: 1048576
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /tmp/uwsgi.sock fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) ***
+Python version: 3.6.9 (default, Jul 13 2019, 15:04:38)  [GCC 6.3.0 20170516]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x55eef2554570
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) ***
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 1239640 bytes (1210 KB) for 16 cores
+*** Operational MODE: preforking ***
+2020-11-27 18:20:27,053 INFO success: uwsgi entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+Traceback (most recent call last):
+  File "./main.py", line 29, in <module>
+    redis_server = os.environ['REDIS']
+  File "/usr/local/lib/python3.6/os.py", line 669, in __getitem__
+    raise KeyError(key) from None
+KeyError: 'REDIS'
+unable to load app 0 (mountpoint='') (callable not found or import error)
+*** no app loaded. GAME OVER ***
+2020-11-27 18:20:29,247 INFO exited: uwsgi (exit status 22; not expected)
+2020-11-27 18:20:30,250 INFO spawned: 'uwsgi' with pid 23
+[uWSGI] getting INI configuration from /app/uwsgi.ini
+[uWSGI] getting INI configuration from /etc/uwsgi/uwsgi.ini
+
+;uWSGI instance configuration
+[uwsgi]
+cheaper = 2
+processes = 16
+ini = /app/uwsgi.ini
+module = main
+callable = app
+ini = /etc/uwsgi/uwsgi.ini
+socket = /tmp/uwsgi.sock
+chown-socket = nginx:nginx
+chmod-socket = 664
+hook-master-start = unix_signal:15 gracefully_kill_them_all
+need-app = true
+die-on-term = true
+show-config = true
+;end of configuration
+
+*** Starting uWSGI 2.0.18 (64bit) on [Fri Nov 27 18:20:30 2020] ***
+compiled with version: 6.3.0 20170516 on 09 August 2019 03:04:38
+os: Linux-5.4.39-linuxkit #1 SMP Fri May 8 23:03:06 UTC 2020
+nodename: demoapp-669ddb9d44-2vm82
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /app
+detected binary path: /usr/local/bin/uwsgi
+your memory page size is 4096 bytes
+detected max file descriptor number: 1048576
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /tmp/uwsgi.sock fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+
+D:\Program Files\kind\docker>kubectl logs -f --tail=20 demoapp-669ddb9d44-2vm82
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) ***
+Python version: 3.6.9 (default, Jul 13 2019, 15:04:38)  [GCC 6.3.0 20170516]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x5575c39fb570
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) ***
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 1239640 bytes (1210 KB) for 16 cores
+*** Operational MODE: preforking ***
+2020-11-27 18:41:26,772 INFO success: uwsgi entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+Traceback (most recent call last):
+  File "./main.py", line 29, in <module>
+    redis_server = os.environ['REDIS']
+  File "/usr/local/lib/python3.6/os.py", line 669, in __getitem__
+    raise KeyError(key) from None
+KeyError: 'REDIS'
+unable to load app 0 (mountpoint='') (callable not found or import error)
+*** no app loaded. GAME OVER ***
+2020-11-27 18:41:29,268 INFO exited: uwsgi (exit status 22; not expected)
+2020-11-27 18:41:30,272 INFO spawned: 'uwsgi' with pid 597
+[uWSGI] getting INI configuration from /app/uwsgi.ini
+[uWSGI] getting INI configuration from /etc/uwsgi/uwsgi.ini
+
+;uWSGI instance configuration
+[uwsgi]
+cheaper = 2
+processes = 16
+ini = /app/uwsgi.ini
+module = main
+callable = app
+ini = /etc/uwsgi/uwsgi.ini
+socket = /tmp/uwsgi.sock
+chown-socket = nginx:nginx
+chmod-socket = 664
+hook-master-start = unix_signal:15 gracefully_kill_them_all
+need-app = true
+die-on-term = true
+show-config = true
+;end of configuration
+
+*** Starting uWSGI 2.0.18 (64bit) on [Fri Nov 27 18:41:30 2020] ***
+compiled with version: 6.3.0 20170516 on 09 August 2019 03:04:38
+os: Linux-5.4.39-linuxkit #1 SMP Fri May 8 23:03:06 UTC 2020
+nodename: demoapp-669ddb9d44-2vm82
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /app
+detected binary path: /usr/local/bin/uwsgi
+your memory page size is 4096 bytes
+detected max file descriptor number: 1048576
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /tmp/uwsgi.sock fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) ***
+Python version: 3.6.9 (default, Jul 13 2019, 15:04:38)  [GCC 6.3.0 20170516]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x561d6ee13570
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) ***
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 1239640 bytes (1210 KB) for 16 cores
+*** Operational MODE: preforking ***
+2020-11-27 18:41:31,772 INFO success: uwsgi entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+Traceback (most recent call last):
+  File "./main.py", line 29, in <module>
+    redis_server = os.environ['REDIS']
+  File "/usr/local/lib/python3.6/os.py", line 669, in __getitem__
+    raise KeyError(key) from None
+KeyError: 'REDIS'
+unable to load app 0 (mountpoint='') (callable not found or import error)
+*** no app loaded. GAME OVER ***
+2020-11-27 18:41:33,868 INFO exited: uwsgi (exit status 22; not expected)
+2020-11-27 18:41:34,871 INFO spawned: 'uwsgi' with pid 599
+[uWSGI] getting INI configuration from /app/uwsgi.ini
+[uWSGI] getting INI configuration from /etc/uwsgi/uwsgi.ini
+
+;uWSGI instance configuration
+[uwsgi]
+cheaper = 2
+processes = 16
+ini = /app/uwsgi.ini
+module = main
+callable = app
+ini = /etc/uwsgi/uwsgi.ini
+socket = /tmp/uwsgi.sock
+chown-socket = nginx:nginx
+chmod-socket = 664
+hook-master-start = unix_signal:15 gracefully_kill_them_all
+need-app = true
+die-on-term = true
+show-config = true
+;end of configuration
+
+*** Starting uWSGI 2.0.18 (64bit) on [Fri Nov 27 18:41:34 2020] ***
+compiled with version: 6.3.0 20170516 on 09 August 2019 03:04:38
+os: Linux-5.4.39-linuxkit #1 SMP Fri May 8 23:03:06 UTC 2020
+nodename: demoapp-669ddb9d44-2vm82
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /app
+detected binary path: /usr/local/bin/uwsgi
+your memory page size is 4096 bytes
+detected max file descriptor number: 1048576
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /tmp/uwsgi.sock fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) ***
+Python version: 3.6.9 (default, Jul 13 2019, 15:04:38)  [GCC 6.3.0 20170516]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x55bffe8a3570
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) ***
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 1239640 bytes (1210 KB) for 16 cores
+*** Operational MODE: preforking ***
+2020-11-27 18:41:36,366 INFO success: uwsgi entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+Traceback (most recent call last):
+  File "./main.py", line 29, in <module>
+    redis_server = os.environ['REDIS']
+  File "/usr/local/lib/python3.6/os.py", line 669, in __getitem__
+    raise KeyError(key) from None
+KeyError: 'REDIS'
+unable to load app 0 (mountpoint='') (callable not found or import error)
+*** no app loaded. GAME OVER ***
+2020-11-27 18:41:38,268 INFO exited: uwsgi (exit status 22; not expected)
+2020-11-27 18:41:39,270 INFO spawned: 'uwsgi' with pid 601
+[uWSGI] getting INI configuration from /app/uwsgi.ini
+[uWSGI] getting INI configuration from /etc/uwsgi/uwsgi.ini
+
+;uWSGI instance configuration
+[uwsgi]
+cheaper = 2
+processes = 16
+ini = /app/uwsgi.ini
+module = main
+callable = app
+ini = /etc/uwsgi/uwsgi.ini
+socket = /tmp/uwsgi.sock
+chown-socket = nginx:nginx
+chmod-socket = 664
+hook-master-start = unix_signal:15 gracefully_kill_them_all
+need-app = true
+die-on-term = true
+show-config = true
+;end of configuration
+
+*** Starting uWSGI 2.0.18 (64bit) on [Fri Nov 27 18:41:39 2020] ***
+compiled with version: 6.3.0 20170516 on 09 August 2019 03:04:38
+os: Linux-5.4.39-linuxkit #1 SMP Fri May 8 23:03:06 UTC 2020
+nodename: demoapp-669ddb9d44-2vm82
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /app
+detected binary path: /usr/local/bin/uwsgi
+your memory page size is 4096 bytes
+detected max file descriptor number: 1048576
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /tmp/uwsgi.sock fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) ***
+Python version: 3.6.9 (default, Jul 13 2019, 15:04:38)  [GCC 6.3.0 20170516]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x56043d15e570
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) ***
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 1239640 bytes (1210 KB) for 16 cores
+*** Operational MODE: preforking ***
+2020-11-27 18:41:40,774 INFO success: uwsgi entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+Traceback (most recent call last):
+  File "./main.py", line 29, in <module>
+    redis_server = os.environ['REDIS']
+  File "/usr/local/lib/python3.6/os.py", line 669, in __getitem__
+    raise KeyError(key) from None
+KeyError: 'REDIS'
+unable to load app 0 (mountpoint='') (callable not found or import error)
+*** no app loaded. GAME OVER ***
+2020-11-27 18:41:43,265 INFO exited: uwsgi (exit status 22; not expected)
+2020-11-27 18:41:44,268 INFO spawned: 'uwsgi' with pid 603
+[uWSGI] getting INI configuration from /app/uwsgi.ini
+[uWSGI] getting INI configuration from /etc/uwsgi/uwsgi.ini
+
+;uWSGI instance configuration
+[uwsgi]
+cheaper = 2
+processes = 16
+ini = /app/uwsgi.ini
+module = main
+callable = app
+ini = /etc/uwsgi/uwsgi.ini
+socket = /tmp/uwsgi.sock
+chown-socket = nginx:nginx
+chmod-socket = 664
+hook-master-start = unix_signal:15 gracefully_kill_them_all
+need-app = true
+die-on-term = true
+show-config = true
+;end of configuration
+
+*** Starting uWSGI 2.0.18 (64bit) on [Fri Nov 27 18:41:44 2020] ***
+compiled with version: 6.3.0 20170516 on 09 August 2019 03:04:38
+os: Linux-5.4.39-linuxkit #1 SMP Fri May 8 23:03:06 UTC 2020
+nodename: demoapp-669ddb9d44-2vm82
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /app
+detected binary path: /usr/local/bin/uwsgi
+your memory page size is 4096 bytes
+detected max file descriptor number: 1048576
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /tmp/uwsgi.sock fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) ***
+Python version: 3.6.9 (default, Jul 13 2019, 15:04:38)  [GCC 6.3.0 20170516]
+
+D:\Program Files\kind\docker>start .
+
+D:\Program Files\kind\docker>kubectl get secrets
+NAME                  TYPE                                  DATA   AGE
+default-token-m9k7k   kubernetes.io/service-account-token   3      118m
+mytrainregistrykey    kubernetes.io/dockerconfigjson        1      56m
+
+D:\Program Files\kind\docker>kubectl get secrets mytrainregistrykey -o yaml
+apiVersion: v1
+data:
+  .dockerconfigjson: eyJhdXRocyI6eyJkb2NrZXIuaW8iOnsidXNlcm5hbWUiOiJtb2hhbnJhajEyMyIsInBhc3N3b3JkIjoic3VsdXIhMTIzIiwiZW1haWwiOiJtb2hhbnJhajEyM0BnbWFpbC5jb20iLCJhdXRoIjoiYlc5b1lXNXlZV294TWpNNmMzVnNkWEloTVRJeiJ9fX0=
+kind: Secret
+metadata:
+  creationTimestamp: "2020-11-27T17:47:01Z"
+  managedFields:
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:data:
+        .: {}
+        f:.dockerconfigjson: {}
+      f:type: {}
+    manager: kubectl-create
+    operation: Update
+    time: "2020-11-27T17:47:01Z"
+  name: mytrainregistrykey
+  namespace: default
+  resourceVersion: "10346"
+  selfLink: /api/v1/namespaces/default/secrets/mytrainregistrykey
+  uid: 70448481-c63e-40f8-a1fb-31f58a8715b6
+type: kubernetes.io/dockerconfigjson
+
+D:\Program Files\kind\docker>dir
+ Volume in drive D is DATA
+ Volume Serial Number is 8C7E-BA2C
+
+ Directory of D:\Program Files\kind\docker
+
+11/28/2020  12:12 AM    <DIR>          .
+11/28/2020  12:12 AM    <DIR>          ..
+11/27/2020  11:48 PM               697 demoapp.yaml
+11/28/2020  12:14 AM               747 deploy_mohan.yaml
+11/27/2020  10:55 PM                13 Dockerfile
+               3 File(s)          1,457 bytes
+               2 Dir(s)  274,402,746,368 bytes free
+
+D:\Program Files\kind\docker>kubectl get pods
+NAME                       READY   STATUS    RESTARTS   AGE
+demoapp-669ddb9d44-2vm82   1/1     Running   0          26m
+demoapp-669ddb9d44-q4z5r   1/1     Running   0          26m
+demoapp-669ddb9d44-zl7zc   1/1     Running   0          28m
+
+D:\Program Files\kind\docker>kubectl delete -f demoapp.yaml
+deployment.apps "demoapp" deleted
+service "demoapp-svc" deleted
+
+D:\Program Files\kind\docker>kubectl apply -f deploy_mohan.yaml
+deployment.apps/demoapp created
+service/demoapp-svc created
+
+D:\Program Files\kind\docker>kubectl get pods
+NAME                       READY   STATUS              RESTARTS   AGE
+demoapp-597d66c949-bvjht   0/1     ContainerCreating   0          7s
+demoapp-597d66c949-lhbzj   0/1     ContainerCreating   0          7s
+demoapp-597d66c949-qkwjm   0/1     ContainerCreating   0          7s
+
+D:\Program Files\kind\docker>kubectl get pods
+NAME                       READY   STATUS              RESTARTS   AGE
+demoapp-597d66c949-bvjht   0/1     ContainerCreating   0          11s
+demoapp-597d66c949-lhbzj   0/1     ContainerCreating   0          11s
+demoapp-597d66c949-qkwjm   0/1     ContainerCreating   0          11s
+
+D:\Program Files\kind\docker>kubectl get pods
+NAME                       READY   STATUS              RESTARTS   AGE
+demoapp-597d66c949-bvjht   0/1     ContainerCreating   0          13s
+demoapp-597d66c949-lhbzj   0/1     ContainerCreating   0          13s
+demoapp-597d66c949-qkwjm   0/1     ContainerCreating   0          13s
+
+D:\Program Files\kind\docker>kubectl get pods
+NAME                       READY   STATUS              RESTARTS   AGE
+demoapp-597d66c949-bvjht   0/1     ContainerCreating   0          18s
+demoapp-597d66c949-lhbzj   0/1     ContainerCreating   0          18s
+demoapp-597d66c949-qkwjm   0/1     ContainerCreating   0          18s
+
+D:\Program Files\kind\docker>kubectl describe po demoapp-597d66c949-bvjht
+Name:           demoapp-597d66c949-bvjht
+Namespace:      default
+Priority:       0
+Node:           kind-2-control-plane/172.18.0.2
+Start Time:     Sat, 28 Nov 2020 00:16:44 +0530
+Labels:         app=demoapp
+                pod-template-hash=597d66c949
+Annotations:    <none>
+Status:         Pending
+IP:
+IPs:            <none>
+Controlled By:  ReplicaSet/demoapp-597d66c949
+Containers:
+  demoapp:
+    Container ID:
+    Image:          mohanraj123/tomcattrain:9
+    Image ID:
+    Port:           8080/TCP
+    Host Port:      0/TCP
+    State:          Waiting
+      Reason:       ContainerCreating
+    Ready:          False
+    Restart Count:  0
+    Limits:
+      cpu:     100m
+      memory:  200Mi
+    Requests:
+      cpu:        100m
+      memory:     200Mi
+    Environment:  <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-m9k7k (ro)
+Conditions:
+  Type              Status
+  Initialized       True
+  Ready             False
+  ContainersReady   False
+  PodScheduled      True
+Volumes:
+  default-token-m9k7k:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  default-token-m9k7k
+    Optional:    false
+QoS Class:       Guaranteed
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age   From               Message
+  ----    ------     ----  ----               -------
+  Normal  Scheduled  31s   default-scheduler  Successfully assigned default/demoapp-597d66c949-bvjht to kind-2-control-plane
+  Normal  Pulling    31s   kubelet            Pulling image "mohanraj123/tomcattrain:9"
+
+D:\Program Files\kind\docker>kubectl describe po demoapp-597d66c949-bvjht
+Name:           demoapp-597d66c949-bvjht
+Namespace:      default
+Priority:       0
+Node:           kind-2-control-plane/172.18.0.2
+Start Time:     Sat, 28 Nov 2020 00:16:44 +0530
+Labels:         app=demoapp
+                pod-template-hash=597d66c949
+Annotations:    <none>
+Status:         Pending
+IP:
+IPs:            <none>
+Controlled By:  ReplicaSet/demoapp-597d66c949
+Containers:
+  demoapp:
+    Container ID:
+    Image:          mohanraj123/tomcattrain:9
+    Image ID:
+    Port:           8080/TCP
+    Host Port:      0/TCP
+    State:          Waiting
+      Reason:       ContainerCreating
+    Ready:          False
+    Restart Count:  0
+    Limits:
+      cpu:     100m
+      memory:  200Mi
+    Requests:
+      cpu:        100m
+      memory:     200Mi
+    Environment:  <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-m9k7k (ro)
+Conditions:
+  Type              Status
+  Initialized       True
+  Ready             False
+  ContainersReady   False
+  PodScheduled      True
+Volumes:
+  default-token-m9k7k:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  default-token-m9k7k
+    Optional:    false
+QoS Class:       Guaranteed
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age   From               Message
+  ----    ------     ----  ----               -------
+  Normal  Scheduled  35s   default-scheduler  Successfully assigned default/demoapp-597d66c949-bvjht to kind-2-control-plane
+  Normal  Pulling    35s   kubelet            Pulling image "mohanraj123/tomcattrain:9"
+
+D:\Program Files\kind\docker>kubectl get pods
+NAME                       READY   STATUS              RESTARTS   AGE
+demoapp-597d66c949-bvjht   0/1     ContainerCreating   0          39s
+demoapp-597d66c949-lhbzj   0/1     ContainerCreating   0          39s
+demoapp-597d66c949-qkwjm   0/1     ContainerCreating   0          39s
+
+D:\Program Files\kind\docker>kubectl get pods
+NAME                       READY   STATUS              RESTARTS   AGE
+demoapp-597d66c949-bvjht   0/1     ContainerCreating   0          42s
+demoapp-597d66c949-lhbzj   0/1     ContainerCreating   0          42s
+demoapp-597d66c949-qkwjm   0/1     ContainerCreating   0          42s
+
+D:\Program Files\kind\docker>kubectl get pods
+NAME                       READY   STATUS              RESTARTS   AGE
+demoapp-597d66c949-bvjht   0/1     ContainerCreating   0          44s
+demoapp-597d66c949-lhbzj   0/1     ContainerCreating   0          44s
+demoapp-597d66c949-qkwjm   0/1     ContainerCreating   0          44s
+
+D:\Program Files\kind\docker>kubectl get pods
+NAME                       READY   STATUS              RESTARTS   AGE
+demoapp-597d66c949-bvjht   0/1     ContainerCreating   0          48s
+demoapp-597d66c949-lhbzj   0/1     ContainerCreating   0          48s
+demoapp-597d66c949-qkwjm   0/1     ContainerCreating   0          48s
+
+D:\Program Files\kind\docker>kubectl get pods
+NAME                       READY   STATUS              RESTARTS   AGE
+demoapp-597d66c949-bvjht   0/1     ContainerCreating   0          50s
+demoapp-597d66c949-lhbzj   0/1     ContainerCreating   0          50s
+demoapp-597d66c949-qkwjm   0/1     ContainerCreating   0          50s
+
+D:\Program Files\kind\docker>kubectl get pods
+NAME                       READY   STATUS              RESTARTS   AGE
+demoapp-597d66c949-bvjht   0/1     ContainerCreating   0          52s
+demoapp-597d66c949-lhbzj   0/1     ContainerCreating   0          52s
+demoapp-597d66c949-qkwjm   0/1     ContainerCreating   0          52s
+
+D:\Program Files\kind\docker>kubectl describe po demoapp-597d66c949-bvjht
+Name:           demoapp-597d66c949-bvjht
+Namespace:      default
+Priority:       0
+Node:           kind-2-control-plane/172.18.0.2
+Start Time:     Sat, 28 Nov 2020 00:16:44 +0530
+Labels:         app=demoapp
+                pod-template-hash=597d66c949
+Annotations:    <none>
+Status:         Pending
+IP:
+IPs:            <none>
+Controlled By:  ReplicaSet/demoapp-597d66c949
+Containers:
+  demoapp:
+    Container ID:
+    Image:          mohanraj123/tomcattrain:9
+    Image ID:
+    Port:           8080/TCP
+    Host Port:      0/TCP
+    State:          Waiting
+      Reason:       ContainerCreating
+    Ready:          False
+    Restart Count:  0
+    Limits:
+      cpu:     100m
+      memory:  200Mi
+    Requests:
+      cpu:        100m
+      memory:     200Mi
+    Environment:  <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-m9k7k (ro)
+Conditions:
+  Type              Status
+  Initialized       True
+  Ready             False
+  ContainersReady   False
+  PodScheduled      True
+Volumes:
+  default-token-m9k7k:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  default-token-m9k7k
+    Optional:    false
+QoS Class:       Guaranteed
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age   From               Message
+  ----    ------     ----  ----               -------
+  Normal  Scheduled  57s   default-scheduler  Successfully assigned default/demoapp-597d66c949-bvjht to kind-2-control-plane
+  Normal  Pulling    57s   kubelet            Pulling image "mohanraj123/tomcattrain:9"
+
+D:\Program Files\kind\docker>kubectl get pods
+NAME                       READY   STATUS              RESTARTS   AGE
+demoapp-597d66c949-bvjht   0/1     ContainerCreating   0          62s
+demoapp-597d66c949-lhbzj   0/1     ContainerCreating   0          62s
+demoapp-597d66c949-qkwjm   0/1     ContainerCreating   0          62s
+
+D:\Program Files\kind\docker>kubectl get pods
+NAME                       READY   STATUS              RESTARTS   AGE
+demoapp-597d66c949-bvjht   0/1     ContainerCreating   0          72s
+demoapp-597d66c949-lhbzj   0/1     ContainerCreating   0          72s
+demoapp-597d66c949-qkwjm   0/1     ContainerCreating   0          72s
+
+D:\Program Files\kind\docker>kubectl get pods
+NAME                       READY   STATUS              RESTARTS   AGE
+demoapp-597d66c949-bvjht   0/1     ContainerCreating   0          78s
+demoapp-597d66c949-lhbzj   0/1     ContainerCreating   0          78s
+demoapp-597d66c949-qkwjm   0/1     ContainerCreating   0          78s
+
+D:\Program Files\kind\docker>kubectl get pods
+NAME                       READY   STATUS              RESTARTS   AGE
+demoapp-597d66c949-bvjht   0/1     ContainerCreating   0          80s
+demoapp-597d66c949-lhbzj   0/1     ContainerCreating   0          80s
+demoapp-597d66c949-qkwjm   0/1     ContainerCreating   0          80s
+
+D:\Program Files\kind\docker>kubectl get pods
+NAME                       READY   STATUS              RESTARTS   AGE
+demoapp-597d66c949-bvjht   0/1     ContainerCreating   0          87s
+demoapp-597d66c949-lhbzj   0/1     ContainerCreating   0          87s
+demoapp-597d66c949-qkwjm   0/1     ContainerCreating   0          87s
+
+D:\Program Files\kind\docker>kubectl get pods
+NAME                       READY   STATUS    RESTARTS   AGE
+demoapp-597d66c949-bvjht   1/1     Running   0          2m17s
+demoapp-597d66c949-lhbzj   1/1     Running   0          2m17s
+demoapp-597d66c949-qkwjm   1/1     Running   0          2m17s
+
+D:\Program Files\kind\docker>kubectl get all
+NAME                           READY   STATUS    RESTARTS   AGE
+pod/demoapp-597d66c949-bvjht   1/1     Running   0          2m27s
+pod/demoapp-597d66c949-lhbzj   1/1     Running   0          2m27s
+pod/demoapp-597d66c949-qkwjm   1/1     Running   0          2m27s
+
+NAME                  TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)    AGE
+service/demoapp-svc   ClusterIP   10.97.137.81   <none>        8080/TCP   2m27s
+service/kubernetes    ClusterIP   10.96.0.1      <none>        443/TCP    124m
+
+NAME                      READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/demoapp   3/3     3            3           2m27s
+
+NAME                                 DESIRED   CURRENT   READY   AGE
+replicaset.apps/demoapp-597d66c949   3         3         3       2m27s
+
+D:\Program Files\kind\docker>kubectl port-forward service/demoapp-svc 32333:8080
+Forwarding from 127.0.0.1:32333 -> 8080
+Forwarding from [::1]:32333 -> 8080
+Handling connection for 32333
+Handling connection for 32333
+Handling connection for 32333
+
+D:\Program Files\kind\docker>
+
+D:\Program Files\kind\docker>kubectl get ep
+NAME          ENDPOINTS                                            AGE
+demoapp-svc   10.244.0.23:8080,10.244.0.24:8080,10.244.0.25:8080   3m51s
+kubernetes    172.18.0.2:6443                                      125m
+
+D:\Program Files\kind\docker>kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/static/provider/kind/deploy.yaml
+namespace/ingress-nginx created
+serviceaccount/ingress-nginx created
+configmap/ingress-nginx-controller created
+clusterrole.rbac.authorization.k8s.io/ingress-nginx created
+clusterrolebinding.rbac.authorization.k8s.io/ingress-nginx created
+role.rbac.authorization.k8s.io/ingress-nginx created
+rolebinding.rbac.authorization.k8s.io/ingress-nginx created
+service/ingress-nginx-controller-admission created
+service/ingress-nginx-controller created
+deployment.apps/ingress-nginx-controller created
+validatingwebhookconfiguration.admissionregistration.k8s.io/ingress-nginx-admission created
+serviceaccount/ingress-nginx-admission created
+clusterrole.rbac.authorization.k8s.io/ingress-nginx-admission created
+clusterrolebinding.rbac.authorization.k8s.io/ingress-nginx-admission created
+role.rbac.authorization.k8s.io/ingress-nginx-admission created
+rolebinding.rbac.authorization.k8s.io/ingress-nginx-admission created
+job.batch/ingress-nginx-admission-create created
+job.batch/ingress-nginx-admission-patch created
+
+D:\Program Files\kind\docker>
+D:\Program Files\kind\docker>kubectl get pods -n ingress-ngnix
+No resources found in ingress-ngnix namespace.
+
+D:\Program Files\kind\docker>kubectl get pods -n ingress-ngnix
+No resources found in ingress-ngnix namespace.
+
+D:\Program Files\kind\docker>kubectl get pods -n ingress-nginx
+NAME                                        READY   STATUS      RESTARTS   AGE
+ingress-nginx-admission-create-8ngbt        0/1     Completed   0          37s
+ingress-nginx-admission-patch-qp29n         0/1     Completed   0          37s
+ingress-nginx-controller-6df69bd4f7-46mk9   0/1     Pending     0          37s
+
+D:\Program Files\kind\docker>kubectl get pods -n ingress-nginx
+NAME                                        READY   STATUS      RESTARTS   AGE
+ingress-nginx-admission-create-8ngbt        0/1     Completed   0          69s
+ingress-nginx-admission-patch-qp29n         0/1     Completed   0          69s
+ingress-nginx-controller-6df69bd4f7-46mk9   0/1     Pending     0          69s
+
+D:\Program Files\kind\docker>kubectl get pods -n ingress-nginx
+NAME                                        READY   STATUS      RESTARTS   AGE
+ingress-nginx-admission-create-8ngbt        0/1     Completed   0          75s
+ingress-nginx-admission-patch-qp29n         0/1     Completed   0          75s
+ingress-nginx-controller-6df69bd4f7-46mk9   0/1     Pending     0          75s
+
+D:\Program Files\kind\docker>kubectl describe pods ingress-nginx-controller-6df69bd4f7-46mk9
+Error from server (NotFound): pods "ingress-nginx-controller-6df69bd4f7-46mk9" not found
+
+D:\Program Files\kind\docker>kubectl describe pods ingress-nginx-controller-6df69bd4f7-46mk9 -n ingress-nginx
+Name:           ingress-nginx-controller-6df69bd4f7-46mk9
+Namespace:      ingress-nginx
+Priority:       0
+Node:           <none>
+Labels:         app.kubernetes.io/component=controller
+                app.kubernetes.io/instance=ingress-nginx
+                app.kubernetes.io/name=ingress-nginx
+                pod-template-hash=6df69bd4f7
+Annotations:    <none>
+Status:         Pending
+IP:
+IPs:            <none>
+Controlled By:  ReplicaSet/ingress-nginx-controller-6df69bd4f7
+Containers:
+  controller:
+    Image:       k8s.gcr.io/ingress-nginx/controller:v0.41.2@sha256:1f4f402b9c14f3ae92b11ada1dfe9893a88f0faeb0b2f4b903e2c67a0c3bf0de
+    Ports:       80/TCP, 443/TCP, 8443/TCP
+    Host Ports:  80/TCP, 443/TCP, 0/TCP
+    Args:
+      /nginx-ingress-controller
+      --election-id=ingress-controller-leader
+      --ingress-class=nginx
+      --configmap=$(POD_NAMESPACE)/ingress-nginx-controller
+      --validating-webhook=:8443
+      --validating-webhook-certificate=/usr/local/certificates/cert
+      --validating-webhook-key=/usr/local/certificates/key
+      --publish-status-address=localhost
+    Requests:
+      cpu:      100m
+      memory:   90Mi
+    Liveness:   http-get http://:10254/healthz delay=10s timeout=1s period=10s #success=1 #failure=5
+    Readiness:  http-get http://:10254/healthz delay=10s timeout=1s period=10s #success=1 #failure=3
+    Environment:
+      POD_NAME:       ingress-nginx-controller-6df69bd4f7-46mk9 (v1:metadata.name)
+      POD_NAMESPACE:  ingress-nginx (v1:metadata.namespace)
+      LD_PRELOAD:     /usr/local/lib/libmimalloc.so
+    Mounts:
+      /usr/local/certificates/ from webhook-cert (ro)
+      /var/run/secrets/kubernetes.io/serviceaccount from ingress-nginx-token-2fz5d (ro)
+Conditions:
+  Type           Status
+  PodScheduled   False
+Volumes:
+  webhook-cert:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  ingress-nginx-admission
+    Optional:    false
+  ingress-nginx-token-2fz5d:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  ingress-nginx-token-2fz5d
+    Optional:    false
+QoS Class:       Burstable
+Node-Selectors:  ingress-ready=true
+                 kubernetes.io/os=linux
+Tolerations:     node-role.kubernetes.io/master:NoSchedule
+                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type     Reason            Age   From               Message
+  ----     ------            ----  ----               -------
+  Warning  FailedScheduling  107s  default-scheduler  0/1 nodes are available: 1 node(s) didn't match node selector.
+  Warning  FailedScheduling  107s  default-scheduler  0/1 nodes are available: 1 node(s) didn't match node selector.
+
+D:\Program Files\kind\docker>
+D:\Program Files\kind\docker>kubectl get deployments
+NAME      READY   UP-TO-DATE   AVAILABLE   AGE
+demoapp   3/3     3            3           9m31s
+
+D:\Program Files\kind\docker>kubectl get deployments -n ingress-nginx
+NAME                       READY   UP-TO-DATE   AVAILABLE   AGE
+ingress-nginx-controller   0/1     1            0           2m22s
+
+D:\Program Files\kind\docker>kubectl edit deployements -n ingress-nginx
+error: the server doesn't have a resource type "deployements"
+
+D:\Program Files\kind\docker>kubectl edit deployments -n ingress-nginx
+deployment.apps/ingress-nginx-controller edited
+
+D:\Program Files\kind\docker>kubectl get pods -n ingress-nginx
+NAME                                        READY   STATUS              RESTARTS   AGE
+ingress-nginx-admission-create-8ngbt        0/1     Completed           0          4m29s
+ingress-nginx-admission-patch-qp29n         0/1     Completed           0          4m29s
+ingress-nginx-controller-66f98889d8-b7h7n   0/1     ContainerCreating   0          22s
+
+D:\Program Files\kind\docker>kubectl get pods -n ingress-nginx
+NAME                                        READY   STATUS              RESTARTS   AGE
+ingress-nginx-admission-create-8ngbt        0/1     Completed           0          4m31s
+ingress-nginx-admission-patch-qp29n         0/1     Completed           0          4m31s
+ingress-nginx-controller-66f98889d8-b7h7n   0/1     ContainerCreating   0          24s
+
+D:\Program Files\kind\docker>kubectl get pods -n ingress-nginx
+NAME                                        READY   STATUS              RESTARTS   AGE
+ingress-nginx-admission-create-8ngbt        0/1     Completed           0          4m33s
+ingress-nginx-admission-patch-qp29n         0/1     Completed           0          4m33s
+ingress-nginx-controller-66f98889d8-b7h7n   0/1     ContainerCreating   0          26s
+
+D:\Program Files\kind\docker>kubectl get pods -n ingress-nginx
+NAME                                        READY   STATUS              RESTARTS   AGE
+ingress-nginx-admission-create-8ngbt        0/1     Completed           0          4m40s
+ingress-nginx-admission-patch-qp29n         0/1     Completed           0          4m40s
+ingress-nginx-controller-66f98889d8-b7h7n   0/1     ContainerCreating   0          33s
+
+D:\Program Files\kind\docker>kubectl get pods -n ingress-nginx
+NAME                                        READY   STATUS              RESTARTS   AGE
+ingress-nginx-admission-create-8ngbt        0/1     Completed           0          4m47s
+ingress-nginx-admission-patch-qp29n         0/1     Completed           0          4m47s
+ingress-nginx-controller-66f98889d8-b7h7n   0/1     ContainerCreating   0          40s
+
+D:\Program Files\kind\docker>kubectl describe pod ingress-nginx-controller-66f98889d8-b7h7n
+Error from server (NotFound): pods "ingress-nginx-controller-66f98889d8-b7h7n" not found
+
+D:\Program Files\kind\docker>kubectl describe pod ingress-nginx-controller-66f98889d8-b7h7n -n ingress-nginx
+Name:         ingress-nginx-controller-66f98889d8-b7h7n
+Namespace:    ingress-nginx
+Priority:     0
+Node:         kind-2-control-plane/172.18.0.2
+Start Time:   Sat, 28 Nov 2020 00:28:09 +0530
+Labels:       app.kubernetes.io/component=controller
+              app.kubernetes.io/instance=ingress-nginx
+              app.kubernetes.io/name=ingress-nginx
+              pod-template-hash=66f98889d8
+Annotations:  <none>
+Status:       Running
+IP:           10.244.0.29
+IPs:
+  IP:           10.244.0.29
+Controlled By:  ReplicaSet/ingress-nginx-controller-66f98889d8
+Containers:
+  controller:
+    Container ID:  containerd://d34494aa2b2a47a055d8aa4389577739b72bd90a9732942ea20ff597aab264c7
+    Image:         k8s.gcr.io/ingress-nginx/controller:v0.41.2@sha256:1f4f402b9c14f3ae92b11ada1dfe9893a88f0faeb0b2f4b903e2c67a0c3bf0de
+    Image ID:      k8s.gcr.io/ingress-nginx/controller@sha256:1f4f402b9c14f3ae92b11ada1dfe9893a88f0faeb0b2f4b903e2c67a0c3bf0de
+    Ports:         80/TCP, 443/TCP, 8443/TCP
+    Host Ports:    80/TCP, 443/TCP, 0/TCP
+    Args:
+      /nginx-ingress-controller
+      --election-id=ingress-controller-leader
+      --ingress-class=nginx
+      --configmap=$(POD_NAMESPACE)/ingress-nginx-controller
+      --validating-webhook=:8443
+      --validating-webhook-certificate=/usr/local/certificates/cert
+      --validating-webhook-key=/usr/local/certificates/key
+      --publish-status-address=localhost
+    State:          Running
+      Started:      Sat, 28 Nov 2020 00:28:58 +0530
+    Ready:          True
+    Restart Count:  0
+    Requests:
+      cpu:      100m
+      memory:   90Mi
+    Liveness:   http-get http://:10254/healthz delay=10s timeout=1s period=10s #success=1 #failure=5
+    Readiness:  http-get http://:10254/healthz delay=10s timeout=1s period=10s #success=1 #failure=3
+    Environment:
+      POD_NAME:       ingress-nginx-controller-66f98889d8-b7h7n (v1:metadata.name)
+      POD_NAMESPACE:  ingress-nginx (v1:metadata.namespace)
+      LD_PRELOAD:     /usr/local/lib/libmimalloc.so
+    Mounts:
+      /usr/local/certificates/ from webhook-cert (ro)
+      /var/run/secrets/kubernetes.io/serviceaccount from ingress-nginx-token-2fz5d (ro)
+Conditions:
+  Type              Status
+  Initialized       True
+  Ready             True
+  ContainersReady   True
+  PodScheduled      True
+Volumes:
+  webhook-cert:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  ingress-nginx-admission
+    Optional:    false
+  ingress-nginx-token-2fz5d:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  ingress-nginx-token-2fz5d
+    Optional:    false
+QoS Class:       Burstable
+Node-Selectors:  <none>
+Tolerations:     node-role.kubernetes.io/master:NoSchedule
+                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age   From                      Message
+  ----    ------     ----  ----                      -------
+  Normal  Scheduled  68s   default-scheduler         Successfully assigned ingress-nginx/ingress-nginx-controller-66f98889d8-b7h7n to kind-2-control-plane
+  Normal  Pulling    67s   kubelet                   Pulling image "k8s.gcr.io/ingress-nginx/controller:v0.41.2@sha256:1f4f402b9c14f3ae92b11ada1dfe9893a88f0faeb0b2f4b903e2c67a0c3bf0de"
+  Normal  Pulled     19s   kubelet                   Successfully pulled image "k8s.gcr.io/ingress-nginx/controller:v0.41.2@sha256:1f4f402b9c14f3ae92b11ada1dfe9893a88f0faeb0b2f4b903e2c67a0c3bf0de" in 47.7385949s
+  Normal  Created    19s   kubelet                   Created container controller
+  Normal  Started    19s   kubelet                   Started container controller
+  Normal  RELOAD     17s   nginx-ingress-controller  NGINX reload triggered due to a change in configuration
+
+D:\Program Files\kind\docker>kubectl get pods -n ingress-nginx
+NAME                                        READY   STATUS      RESTARTS   AGE
+ingress-nginx-admission-create-8ngbt        0/1     Completed   0          5m23s
+ingress-nginx-admission-patch-qp29n         0/1     Completed   0          5m23s
+ingress-nginx-controller-66f98889d8-b7h7n   1/1     Running     0          76s
+
+D:\Program Files\kind\docker>kubectl apply -f deploy_mohan.yaml
+deployment.apps/demoapp configured
+service/demoapp-svc unchanged
+Warning: networking.k8s.io/v1beta1 Ingress is deprecated in v1.19+, unavailable in v1.22+; use networking.k8s.io/v1 Ingress
+ingress.networking.k8s.io/mytraining-ingress created
+
+D:\Program Files\kind\docker>kubectl get ingress
+Warning: extensions/v1beta1 Ingress is deprecated in v1.14+, unavailable in v1.22+; use networking.k8s.io/v1 Ingress
+NAME                 CLASS    HOSTS   ADDRESS   PORTS   AGE
+mytraining-ingress   <none>   *                 80      20s
+
+D:\Program Files\kind\docker>kubectl get nodes -o wide
+NAME                   STATUS   ROLES    AGE    VERSION   INTERNAL-IP   EXTERNAL-IP   OS-IMAGE                                     KERNEL-VERSION    CONTAINER-RUNTIME
+kind-2-control-plane   Ready    master   137m   v1.19.1   172.18.0.2    <none>        Ubuntu Groovy Gorilla (development branch)   5.4.39-linuxkit   containerd://1.4.0
+
+D:\Program Files\kind\docker>
